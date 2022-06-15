@@ -45,6 +45,8 @@ namespace OkulOtomasyon
 
         private void FrmTeachers_Load(object sender, EventArgs e)
         {
+            // TODO: Bu kod satırı 'okulDataSet1.Teachers' tablosuna veri yükler. Bunu gerektiği şekilde taşıyabilir, veya kaldırabilirsiniz.
+            this.teachersTableAdapter.Fill(this.okulDataSet1.Teachers);
             // listele();
         }
 
