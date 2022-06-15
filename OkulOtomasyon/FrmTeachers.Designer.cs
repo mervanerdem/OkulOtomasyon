@@ -30,9 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmTeachers));
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.okulDataSet = new OkulOtomasyon.OkulDataSet();
+            this.teachersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.okulDataSet3 = new OkulOtomasyon.OkulDataSet3();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
@@ -59,28 +58,28 @@
             this.BtnSil = new DevExpress.XtraEditors.SimpleButton();
             this.BtnTemizle = new DevExpress.XtraEditors.SimpleButton();
             this.BtnResimSec = new DevExpress.XtraEditors.SimpleButton();
-            this.PctResim = new DevExpress.XtraEditors.PictureEdit();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
-            this.okulDataSet1 = new OkulOtomasyon.OkulDataSet1();
-            this.teachersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.teachersTableAdapter = new OkulOtomasyon.OkulDataSet1TableAdapters.TeachersTableAdapter();
-            this.colTeachID = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTeachName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTeachSurName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTeachTC = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTeachTel = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTeachMail = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTeachIL = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTeachILCE = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTeachAdress = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTeachBrans = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTeachFoto = new DevExpress.XtraGrid.Columns.GridColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.okulDataSet)).BeginInit();
+            this.teachersTableAdapter1 = new OkulOtomasyon.OkulDataSet2TableAdapters.TeachersTableAdapter();
+            this.teachersTableAdapter = new OkulOtomasyon.OkulDataSet3TableAdapters.TeachersTableAdapter();
+            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colOgretmenID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colOgretmenAdı = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colOgretmenSoyadı = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colOgretmenTC = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colOgretmenTelNo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colOgretmenMail = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colOgretmenIL = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colOgretmenIlce = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colOgretmenAdres = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colOgretmenBrans = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colOgretmenFoto = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.PctResim = new DevExpress.XtraEditors.PictureEdit();
+            ((System.ComponentModel.ISupportInitialize)(this.teachersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.okulDataSet3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
@@ -95,46 +94,21 @@
             this.xtraTabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PctResim.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.okulDataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.teachersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PctResim.Properties)).BeginInit();
             this.SuspendLayout();
             // 
-            // gridControl1
+            // teachersBindingSource
             // 
-            this.gridControl1.DataSource = this.teachersBindingSource;
-            this.gridControl1.Location = new System.Drawing.Point(3, 2);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1023, 527);
-            this.gridControl1.TabIndex = 0;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
-            this.gridControl1.Click += new System.EventHandler(this.gridControl1_Click);
+            this.teachersBindingSource.DataMember = "Teachers";
+            this.teachersBindingSource.DataSource = this.okulDataSet3;
             // 
-            // gridView1
+            // okulDataSet3
             // 
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colTeachID,
-            this.colTeachName,
-            this.colTeachSurName,
-            this.colTeachTC,
-            this.colTeachTel,
-            this.colTeachMail,
-            this.colTeachIL,
-            this.colTeachILCE,
-            this.colTeachAdress,
-            this.colTeachBrans,
-            this.colTeachFoto});
-            this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsView.ShowGroupPanel = false;
-            // 
-            // okulDataSet
-            // 
-            this.okulDataSet.DataSetName = "OkulDataSet";
-            this.okulDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.okulDataSet3.DataSetName = "OkulDataSet3";
+            this.okulDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // xtraTabControl1
             // 
@@ -157,6 +131,7 @@
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.PctResim);
             this.groupControl1.Controls.Add(this.CmbxBrans);
             this.groupControl1.Controls.Add(this.Cmbxilce);
             this.groupControl1.Controls.Add(this.MskTel);
@@ -182,7 +157,7 @@
             // 
             // CmbxBrans
             // 
-            this.CmbxBrans.Location = new System.Drawing.Point(90, 399);
+            this.CmbxBrans.Location = new System.Drawing.Point(92, 417);
             this.CmbxBrans.Name = "CmbxBrans";
             this.CmbxBrans.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
             this.CmbxBrans.Properties.Appearance.Options.UseFont = true;
@@ -193,7 +168,7 @@
             // 
             // Cmbxilce
             // 
-            this.Cmbxilce.Location = new System.Drawing.Point(90, 349);
+            this.Cmbxilce.Location = new System.Drawing.Point(92, 377);
             this.Cmbxilce.Name = "Cmbxilce";
             this.Cmbxilce.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
             this.Cmbxilce.Properties.Appearance.Options.UseFont = true;
@@ -205,7 +180,7 @@
             // MskTel
             // 
             this.MskTel.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.MskTel.Location = new System.Drawing.Point(90, 248);
+            this.MskTel.Location = new System.Drawing.Point(92, 296);
             this.MskTel.Mask = "(999) 000-0000";
             this.MskTel.Name = "MskTel";
             this.MskTel.Size = new System.Drawing.Size(198, 25);
@@ -214,7 +189,7 @@
             // MskTc
             // 
             this.MskTc.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.MskTc.Location = new System.Drawing.Point(90, 197);
+            this.MskTc.Location = new System.Drawing.Point(92, 255);
             this.MskTc.Mask = "00000000000";
             this.MskTc.Name = "MskTc";
             this.MskTc.Size = new System.Drawing.Size(198, 25);
@@ -222,7 +197,7 @@
             // 
             // Cmbxil
             // 
-            this.Cmbxil.Location = new System.Drawing.Point(90, 299);
+            this.Cmbxil.Location = new System.Drawing.Point(92, 337);
             this.Cmbxil.Name = "Cmbxil";
             this.Cmbxil.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
             this.Cmbxil.Properties.Appearance.Options.UseFont = true;
@@ -233,7 +208,7 @@
             // 
             // TxtSoyad
             // 
-            this.TxtSoyad.Location = new System.Drawing.Point(90, 147);
+            this.TxtSoyad.Location = new System.Drawing.Point(92, 215);
             this.TxtSoyad.Name = "TxtSoyad";
             this.TxtSoyad.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
             this.TxtSoyad.Properties.Appearance.Options.UseFont = true;
@@ -242,7 +217,7 @@
             // 
             // TxtAd
             // 
-            this.TxtAd.Location = new System.Drawing.Point(90, 97);
+            this.TxtAd.Location = new System.Drawing.Point(92, 175);
             this.TxtAd.Name = "TxtAd";
             this.TxtAd.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
             this.TxtAd.Properties.Appearance.Options.UseFont = true;
@@ -251,7 +226,8 @@
             // 
             // TxtID
             // 
-            this.TxtID.Location = new System.Drawing.Point(90, 47);
+            this.TxtID.EditValue = "";
+            this.TxtID.Location = new System.Drawing.Point(92, 135);
             this.TxtID.Name = "TxtID";
             this.TxtID.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
             this.TxtID.Properties.Appearance.Options.UseFont = true;
@@ -262,7 +238,7 @@
             // 
             this.labelControl8.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
             this.labelControl8.Appearance.Options.UseFont = true;
-            this.labelControl8.Location = new System.Drawing.Point(37, 402);
+            this.labelControl8.Location = new System.Drawing.Point(39, 418);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(42, 18);
             this.labelControl8.TabIndex = 7;
@@ -272,7 +248,7 @@
             // 
             this.labelControl7.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
             this.labelControl7.Appearance.Options.UseFont = true;
-            this.labelControl7.Location = new System.Drawing.Point(51, 352);
+            this.labelControl7.Location = new System.Drawing.Point(53, 378);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(28, 18);
             this.labelControl7.TabIndex = 6;
@@ -282,7 +258,7 @@
             // 
             this.labelControl6.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
             this.labelControl6.Appearance.Options.UseFont = true;
-            this.labelControl6.Location = new System.Drawing.Point(66, 302);
+            this.labelControl6.Location = new System.Drawing.Point(68, 338);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(13, 18);
             this.labelControl6.TabIndex = 5;
@@ -292,7 +268,7 @@
             // 
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
             this.labelControl5.Appearance.Options.UseFont = true;
-            this.labelControl5.Location = new System.Drawing.Point(54, 255);
+            this.labelControl5.Location = new System.Drawing.Point(56, 298);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(25, 18);
             this.labelControl5.TabIndex = 4;
@@ -302,7 +278,7 @@
             // 
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
             this.labelControl4.Appearance.Options.UseFont = true;
-            this.labelControl4.Location = new System.Drawing.Point(55, 200);
+            this.labelControl4.Location = new System.Drawing.Point(57, 258);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(24, 18);
             this.labelControl4.TabIndex = 3;
@@ -312,7 +288,7 @@
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
             this.labelControl3.Appearance.Options.UseFont = true;
-            this.labelControl3.Location = new System.Drawing.Point(34, 150);
+            this.labelControl3.Location = new System.Drawing.Point(36, 218);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(45, 18);
             this.labelControl3.TabIndex = 2;
@@ -322,7 +298,7 @@
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
             this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Location = new System.Drawing.Point(57, 100);
+            this.labelControl2.Location = new System.Drawing.Point(59, 178);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(22, 18);
             this.labelControl2.TabIndex = 1;
@@ -332,7 +308,7 @@
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
             this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(58, 50);
+            this.labelControl1.Location = new System.Drawing.Point(59, 138);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(21, 18);
             this.labelControl1.TabIndex = 0;
@@ -353,7 +329,6 @@
             this.groupControl2.Controls.Add(this.BtnSil);
             this.groupControl2.Controls.Add(this.BtnTemizle);
             this.groupControl2.Controls.Add(this.BtnResimSec);
-            this.groupControl2.Controls.Add(this.PctResim);
             this.groupControl2.Controls.Add(this.richTextBox1);
             this.groupControl2.Controls.Add(this.textEdit2);
             this.groupControl2.Controls.Add(this.labelControl9);
@@ -410,15 +385,6 @@
             this.BtnResimSec.TabIndex = 15;
             this.BtnResimSec.Text = "Resim Seç";
             // 
-            // PctResim
-            // 
-            this.PctResim.Location = new System.Drawing.Point(188, 5);
-            this.PctResim.Name = "PctResim";
-            this.PctResim.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.PctResim.Size = new System.Drawing.Size(91, 95);
-            this.PctResim.TabIndex = 14;
-            this.PctResim.EditValueChanged += new System.EventHandler(this.pictureEdit1_EditValueChanged);
-            // 
             // richTextBox1
             // 
             this.richTextBox1.Location = new System.Drawing.Point(81, 143);
@@ -456,110 +422,142 @@
             this.labelControl10.TabIndex = 10;
             this.labelControl10.Text = "Mail:";
             // 
-            // okulDataSet1
+            // teachersTableAdapter1
             // 
-            this.okulDataSet1.DataSetName = "OkulDataSet1";
-            this.okulDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // teachersBindingSource
-            // 
-            this.teachersBindingSource.DataMember = "Teachers";
-            this.teachersBindingSource.DataSource = this.okulDataSet1;
+            this.teachersTableAdapter1.ClearBeforeFill = true;
             // 
             // teachersTableAdapter
             // 
             this.teachersTableAdapter.ClearBeforeFill = true;
             // 
-            // colTeachID
+            // gridControl1
             // 
-            this.colTeachID.FieldName = "TeachID";
-            this.colTeachID.Name = "colTeachID";
-            this.colTeachID.Visible = true;
-            this.colTeachID.VisibleIndex = 0;
+            this.gridControl1.DataSource = this.teachersBindingSource;
+            this.gridControl1.Location = new System.Drawing.Point(2, 2);
+            this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Name = "gridControl1";
+            this.gridControl1.Size = new System.Drawing.Size(1020, 529);
+            this.gridControl1.TabIndex = 2;
+            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            this.gridControl1.Click += new System.EventHandler(this.gridControl1_Click_1);
             // 
-            // colTeachName
+            // gridView1
             // 
-            this.colTeachName.FieldName = "TeachName";
-            this.colTeachName.Name = "colTeachName";
-            this.colTeachName.Visible = true;
-            this.colTeachName.VisibleIndex = 1;
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colOgretmenID,
+            this.colOgretmenAdı,
+            this.colOgretmenSoyadı,
+            this.colOgretmenTC,
+            this.colOgretmenTelNo,
+            this.colOgretmenMail,
+            this.colOgretmenIL,
+            this.colOgretmenIlce,
+            this.colOgretmenAdres,
+            this.colOgretmenBrans,
+            this.colOgretmenFoto});
+            this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsView.ShowGroupPanel = false;
             // 
-            // colTeachSurName
+            // colOgretmenID
             // 
-            this.colTeachSurName.FieldName = "TeachSurName";
-            this.colTeachSurName.Name = "colTeachSurName";
-            this.colTeachSurName.Visible = true;
-            this.colTeachSurName.VisibleIndex = 2;
+            this.colOgretmenID.FieldName = "OgretmenID";
+            this.colOgretmenID.Name = "colOgretmenID";
+            this.colOgretmenID.Visible = true;
+            this.colOgretmenID.VisibleIndex = 0;
             // 
-            // colTeachTC
+            // colOgretmenAdı
             // 
-            this.colTeachTC.FieldName = "TeachTC";
-            this.colTeachTC.Name = "colTeachTC";
-            this.colTeachTC.Visible = true;
-            this.colTeachTC.VisibleIndex = 3;
+            this.colOgretmenAdı.FieldName = "OgretmenAdı";
+            this.colOgretmenAdı.Name = "colOgretmenAdı";
+            this.colOgretmenAdı.Visible = true;
+            this.colOgretmenAdı.VisibleIndex = 1;
             // 
-            // colTeachTel
+            // colOgretmenSoyadı
             // 
-            this.colTeachTel.FieldName = "TeachTel";
-            this.colTeachTel.Name = "colTeachTel";
-            this.colTeachTel.Visible = true;
-            this.colTeachTel.VisibleIndex = 4;
+            this.colOgretmenSoyadı.FieldName = "OgretmenSoyadı";
+            this.colOgretmenSoyadı.Name = "colOgretmenSoyadı";
+            this.colOgretmenSoyadı.Visible = true;
+            this.colOgretmenSoyadı.VisibleIndex = 2;
             // 
-            // colTeachMail
+            // colOgretmenTC
             // 
-            this.colTeachMail.FieldName = "TeachMail";
-            this.colTeachMail.Name = "colTeachMail";
-            this.colTeachMail.Visible = true;
-            this.colTeachMail.VisibleIndex = 5;
+            this.colOgretmenTC.FieldName = "OgretmenTC";
+            this.colOgretmenTC.Name = "colOgretmenTC";
+            this.colOgretmenTC.Visible = true;
+            this.colOgretmenTC.VisibleIndex = 3;
             // 
-            // colTeachIL
+            // colOgretmenTelNo
             // 
-            this.colTeachIL.FieldName = "TeachIL";
-            this.colTeachIL.Name = "colTeachIL";
-            this.colTeachIL.Visible = true;
-            this.colTeachIL.VisibleIndex = 6;
+            this.colOgretmenTelNo.FieldName = "OgretmenTelNo";
+            this.colOgretmenTelNo.Name = "colOgretmenTelNo";
+            this.colOgretmenTelNo.Visible = true;
+            this.colOgretmenTelNo.VisibleIndex = 4;
             // 
-            // colTeachILCE
+            // colOgretmenMail
             // 
-            this.colTeachILCE.FieldName = "TeachILCE";
-            this.colTeachILCE.Name = "colTeachILCE";
-            this.colTeachILCE.Visible = true;
-            this.colTeachILCE.VisibleIndex = 7;
+            this.colOgretmenMail.FieldName = "OgretmenMail";
+            this.colOgretmenMail.Name = "colOgretmenMail";
+            this.colOgretmenMail.Visible = true;
+            this.colOgretmenMail.VisibleIndex = 5;
             // 
-            // colTeachAdress
+            // colOgretmenIL
             // 
-            this.colTeachAdress.FieldName = "TeachAdress";
-            this.colTeachAdress.Name = "colTeachAdress";
-            this.colTeachAdress.Visible = true;
-            this.colTeachAdress.VisibleIndex = 8;
+            this.colOgretmenIL.FieldName = "OgretmenIL";
+            this.colOgretmenIL.Name = "colOgretmenIL";
+            this.colOgretmenIL.Visible = true;
+            this.colOgretmenIL.VisibleIndex = 6;
             // 
-            // colTeachBrans
+            // colOgretmenIlce
             // 
-            this.colTeachBrans.FieldName = "TeachBrans";
-            this.colTeachBrans.Name = "colTeachBrans";
-            this.colTeachBrans.Visible = true;
-            this.colTeachBrans.VisibleIndex = 9;
+            this.colOgretmenIlce.FieldName = "OgretmenIlce";
+            this.colOgretmenIlce.Name = "colOgretmenIlce";
+            this.colOgretmenIlce.Visible = true;
+            this.colOgretmenIlce.VisibleIndex = 7;
             // 
-            // colTeachFoto
+            // colOgretmenAdres
             // 
-            this.colTeachFoto.FieldName = "TeachFoto";
-            this.colTeachFoto.Name = "colTeachFoto";
-            this.colTeachFoto.Visible = true;
-            this.colTeachFoto.VisibleIndex = 10;
+            this.colOgretmenAdres.FieldName = "OgretmenAdres";
+            this.colOgretmenAdres.Name = "colOgretmenAdres";
+            this.colOgretmenAdres.Visible = true;
+            this.colOgretmenAdres.VisibleIndex = 8;
+            // 
+            // colOgretmenBrans
+            // 
+            this.colOgretmenBrans.FieldName = "OgretmenBrans";
+            this.colOgretmenBrans.Name = "colOgretmenBrans";
+            this.colOgretmenBrans.Visible = true;
+            this.colOgretmenBrans.VisibleIndex = 9;
+            // 
+            // colOgretmenFoto
+            // 
+            this.colOgretmenFoto.FieldName = "OgretmenFoto";
+            this.colOgretmenFoto.Name = "colOgretmenFoto";
+            this.colOgretmenFoto.Visible = true;
+            this.colOgretmenFoto.VisibleIndex = 10;
+            // 
+            // PctResim
+            // 
+            this.PctResim.Location = new System.Drawing.Point(172, 5);
+            this.PctResim.Name = "PctResim";
+            this.PctResim.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.PctResim.Size = new System.Drawing.Size(118, 124);
+            this.PctResim.TabIndex = 16;
             // 
             // FrmTeachers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1370, 527);
-            this.Controls.Add(this.xtraTabControl1);
             this.Controls.Add(this.gridControl1);
+            this.Controls.Add(this.xtraTabControl1);
             this.Name = "FrmTeachers";
             this.Text = "FrmTeachers";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmTeachers_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.okulDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teachersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.okulDataSet3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.xtraTabControl1.ResumeLayout(false);
             this.xtraTabPage1.ResumeLayout(false);
@@ -576,19 +574,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
             this.groupControl2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PctResim.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.okulDataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.teachersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PctResim.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private DevExpress.XtraGrid.GridControl gridControl1;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private OkulDataSet okulDataSet;
         private DevExpress.XtraTab.XtraTabControl xtraTabControl1;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
         private DevExpress.XtraEditors.GroupControl groupControl1;
@@ -610,7 +604,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage2;
         private DevExpress.XtraEditors.GroupControl groupControl2;
-        private DevExpress.XtraEditors.PictureEdit PctResim;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private DevExpress.XtraEditors.TextEdit textEdit2;
         private DevExpress.XtraEditors.LabelControl labelControl9;
@@ -620,19 +613,23 @@
         private DevExpress.XtraEditors.SimpleButton BtnSil;
         private DevExpress.XtraEditors.SimpleButton BtnTemizle;
         private DevExpress.XtraEditors.SimpleButton BtnResimSec;
-        private OkulDataSet1 okulDataSet1;
+        private OkulDataSet2TableAdapters.TeachersTableAdapter teachersTableAdapter1;
+        private OkulDataSet3 okulDataSet3;
         private System.Windows.Forms.BindingSource teachersBindingSource;
-        private OkulDataSet1TableAdapters.TeachersTableAdapter teachersTableAdapter;
-        private DevExpress.XtraGrid.Columns.GridColumn colTeachID;
-        private DevExpress.XtraGrid.Columns.GridColumn colTeachName;
-        private DevExpress.XtraGrid.Columns.GridColumn colTeachSurName;
-        private DevExpress.XtraGrid.Columns.GridColumn colTeachTC;
-        private DevExpress.XtraGrid.Columns.GridColumn colTeachTel;
-        private DevExpress.XtraGrid.Columns.GridColumn colTeachMail;
-        private DevExpress.XtraGrid.Columns.GridColumn colTeachIL;
-        private DevExpress.XtraGrid.Columns.GridColumn colTeachILCE;
-        private DevExpress.XtraGrid.Columns.GridColumn colTeachAdress;
-        private DevExpress.XtraGrid.Columns.GridColumn colTeachBrans;
-        private DevExpress.XtraGrid.Columns.GridColumn colTeachFoto;
+        private OkulDataSet3TableAdapters.TeachersTableAdapter teachersTableAdapter;
+        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.Columns.GridColumn colOgretmenID;
+        private DevExpress.XtraGrid.Columns.GridColumn colOgretmenAdı;
+        private DevExpress.XtraGrid.Columns.GridColumn colOgretmenSoyadı;
+        private DevExpress.XtraGrid.Columns.GridColumn colOgretmenTC;
+        private DevExpress.XtraGrid.Columns.GridColumn colOgretmenTelNo;
+        private DevExpress.XtraGrid.Columns.GridColumn colOgretmenMail;
+        private DevExpress.XtraGrid.Columns.GridColumn colOgretmenIL;
+        private DevExpress.XtraGrid.Columns.GridColumn colOgretmenIlce;
+        private DevExpress.XtraGrid.Columns.GridColumn colOgretmenAdres;
+        private DevExpress.XtraGrid.Columns.GridColumn colOgretmenBrans;
+        private DevExpress.XtraGrid.Columns.GridColumn colOgretmenFoto;
+        private DevExpress.XtraEditors.PictureEdit PctResim;
     }
 }

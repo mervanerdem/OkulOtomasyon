@@ -45,8 +45,9 @@ namespace OkulOtomasyon
 
         private void FrmTeachers_Load(object sender, EventArgs e)
         {
-            // TODO: Bu kod satırı 'okulDataSet1.Teachers' tablosuna veri yükler. Bunu gerektiği şekilde taşıyabilir, veya kaldırabilirsiniz.
-            this.teachersTableAdapter.Fill(this.okulDataSet1.Teachers);
+            // TODO: Bu kod satırı 'okulDataSet3.Teachers' tablosuna veri yükler. Bunu gerektiği şekilde taşıyabilir, veya kaldırabilirsiniz.
+            this.teachersTableAdapter.Fill(this.okulDataSet3.Teachers);
+
             // listele();
         }
 
@@ -61,6 +62,11 @@ namespace OkulOtomasyon
         }
 
         private void pictureEdit1_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gridControl1_Click_1(object sender, EventArgs e)
         {
 
         }

@@ -83,6 +83,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>OkulDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="OkulDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OkulDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="OkulDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OkulDataSet3.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="sqlbaglantisi.cs" />
@@ -123,6 +133,28 @@
     </None>
     <None Include="OkulDataSet1.xss">
       <DependentUpon>OkulDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="OkulDataSet2.xsc">
+      <DependentUpon>OkulDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="OkulDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>OkulDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="OkulDataSet2.xss">
+      <DependentUpon>OkulDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="OkulDataSet3.xsc">
+      <DependentUpon>OkulDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="OkulDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>OkulDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="OkulDataSet3.xss">
+      <DependentUpon>OkulDataSet3.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

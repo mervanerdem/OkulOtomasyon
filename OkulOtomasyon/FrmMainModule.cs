@@ -62,9 +62,14 @@ namespace OkulOtomasyon
 
         private void BtnOgretmen_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            frm1 = new FrmTeachers();
-            frm1.MdiParent = this;
-            frm1.Show();
+
+            if (frm1 == null || frm1.IsDisposed)
+            {
+                frm1 = new FrmTeachers();
+                frm1.MdiParent = this;
+                frm1.Show();
+            }
+            
         }
     }
 }
