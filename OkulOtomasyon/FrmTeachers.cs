@@ -33,22 +33,36 @@ namespace OkulOtomasyon
 
         }
 
-    //   sqlbaglantisi bgl = new sqlbaglantisi();
-    //
-    //   void listele()
-    //   {
-    //       DataTable dt = new DataTable();
-    //       SqlDataAdapter da = new SqlDataAdapter("Select * From Teachers",bgl.baglanti());
-    //       da.Fill(dt);
-    //       gridControl1.DataSource = dt;
-    //   }
+        readonly sqlbaglantisi bgl = new sqlbaglantisi(); // sql bağlantısı için bgl değişkeni atandı.
+    
+       void Listele()   //Verilerin grid control ünitesine lisitelenmesi
+       {
+           DataTable dt = new DataTable(); // data table oluşturuldu
+           SqlDataAdapter da = new SqlDataAdapter("Select * From Teachers",bgl.baglanti()); // Query sorgusu yapıldı.
+           da.Fill(dt); //table çekilen veriler ile dolduruluyor.
+           gridControl1.DataSource = dt;    // gridControl aracına yasıtıldı veriler.
+       }
+        
+        void ilekle()   //Kayıt yaparken Combobox'a veri çağırma
+        {
+            SqlCommand komut = new SqlCommand("Select * From iller;", bgl.baglanti()); //verilerin sql bağlantısından çekilmesi
+            SqlDataReader dr = komut.ExecuteReader(); // verilerin okunması
+            while (dr.Read())    // combobox sekmesi açıksa
+            {
+                
+                Cmbxil.Properties.Items.Add(dr[1]); //databasedeki 2.sütundaki verileri(id,il) gösterme
+            }
+            bgl.baglanti().Close();
+
+        }
 
         private void FrmTeachers_Load(object sender, EventArgs e)
         {
             // TODO: Bu kod satırı 'okulDataSet3.Teachers' tablosuna veri yükler. Bunu gerektiği şekilde taşıyabilir, veya kaldırabilirsiniz.
-            this.teachersTableAdapter.Fill(this.okulDataSet3.Teachers);
+            // this.teachersTableAdapter.Fill(this.okulDataSet3.Teachers);
 
-            // listele();
+            Listele();
+            ilekle();
         }
 
         private void gridControl1_Click(object sender, EventArgs e)
@@ -68,6 +82,25 @@ namespace OkulOtomasyon
 
         private void gridControl1_Click_1(object sender, EventArgs e)
         {
+
+        }
+
+        private void Cmbxilce_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Cmbxil_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Cmbxilce.Properties.Items.Clear();  //il değiştirilince ilçeyi temizle
+            SqlCommand komut = new SqlCommand("Select * From ilceler Where sehir=@p1", bgl.baglanti());
+            komut.Parameters.AddWithValue("@p1", Cmbxil.SelectedIndex + 1);
+            SqlDataReader dr = komut.ExecuteReader();
+            while (dr.Read())
+            {
+                Cmbxilce.Properties.Items.Add(dr[1]);
+            }
+            bgl.baglanti().Close();
 
         }
     }

@@ -71,5 +71,10 @@ namespace OkulOtomasyon
             }
             
         }
+
+        private void ribbonControl1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

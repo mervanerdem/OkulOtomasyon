@@ -11,7 +11,7 @@ namespace OkulOtomasyon
     {
         public SqlConnection baglanti()
         {
-            SqlConnection baglan = new SqlConnection(@"  Data Source = DESKTOP - NEIDSN5\SQLEXPRESS; Initial Catalog = Okul; Integrated Security = True");
+            SqlConnection baglan = new SqlConnection(@"Data Source =.\SQLEXPRESS; Initial Catalog = Okul; Integrated Security = True");
             baglan.Open();
             return baglan;
         }
