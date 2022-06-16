@@ -93,6 +93,7 @@ namespace OkulOtomasyon
         private void Cmbxil_SelectedIndexChanged(object sender, EventArgs e)
         {
             Cmbxilce.Properties.Items.Clear();  //il değiştirilince ilçeyi temizle
+            Cmbxilce.Text = "";
             SqlCommand komut = new SqlCommand("Select * From ilceler Where sehir=@p1", bgl.baglanti());
             komut.Parameters.AddWithValue("@p1", Cmbxil.SelectedIndex + 1);
             SqlDataReader dr = komut.ExecuteReader();
@@ -101,6 +102,29 @@ namespace OkulOtomasyon
                 Cmbxilce.Properties.Items.Add(dr[1]);
             }
             bgl.baglanti().Close();
+
+        }
+
+        private void BtnKaydet_Click(object sender, EventArgs e)
+        {
+            SqlCommand komut = new SqlCommand("Insert into Teachers " +
+                "(OgretmenAdı,OgretmenSoyadı,OgretmenTC,OgretmenTelNo,OgretmenMail,OgretmenIL,OgretmenIlce,OgretmenAdres,OgretmenBrans) " +
+                "Values (@p1,@p2,@p3,@p4,@p5,@p6,@p7,@p8,@p9)",bgl.baglanti());
+            komut.Parameters.AddWithValue("@p1",TxtAd.Text);
+            komut.Parameters.AddWithValue("@p2", TxtSoyad.Text);
+            komut.Parameters.AddWithValue("@p3", MskTc.Text);
+            komut.Parameters.AddWithValue("@p4", MskTel.Text);
+            komut.Parameters.AddWithValue("@p5", TxtMail.Text);
+            komut.Parameters.AddWithValue("@p6", Cmbxil.Text);
+            komut.Parameters.AddWithValue("@p7", Cmbxilce.Text);
+            komut.Parameters.AddWithValue("@p8", RchAdres.Text);
+            komut.Parameters.AddWithValue("@p9", CmbxBrans.Text);
+
+            komut.ExecuteNonQuery();
+            bgl.baglanti().Close();
+
+            MessageBox.Show("Personel Eklendi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Listele();
 
         }
     }

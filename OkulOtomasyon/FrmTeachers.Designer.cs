@@ -59,8 +59,8 @@
             this.BtnSil = new DevExpress.XtraEditors.SimpleButton();
             this.BtnTemizle = new DevExpress.XtraEditors.SimpleButton();
             this.BtnResimSec = new DevExpress.XtraEditors.SimpleButton();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
+            this.RchAdres = new System.Windows.Forms.RichTextBox();
+            this.TxtMail = new DevExpress.XtraEditors.TextEdit();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.teachersTableAdapter1 = new OkulOtomasyon.OkulDataSet2TableAdapters.TeachersTableAdapter();
@@ -84,7 +84,7 @@
             this.xtraTabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TxtMail.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
@@ -328,8 +328,8 @@
             this.groupControl2.Controls.Add(this.BtnSil);
             this.groupControl2.Controls.Add(this.BtnTemizle);
             this.groupControl2.Controls.Add(this.BtnResimSec);
-            this.groupControl2.Controls.Add(this.richTextBox1);
-            this.groupControl2.Controls.Add(this.textEdit2);
+            this.groupControl2.Controls.Add(this.RchAdres);
+            this.groupControl2.Controls.Add(this.TxtMail);
             this.groupControl2.Controls.Add(this.labelControl9);
             this.groupControl2.Controls.Add(this.labelControl10);
             this.groupControl2.Location = new System.Drawing.Point(3, 3);
@@ -347,6 +347,7 @@
             this.BtnKaydet.Size = new System.Drawing.Size(198, 36);
             this.BtnKaydet.TabIndex = 19;
             this.BtnKaydet.Text = "Kaydet";
+            this.BtnKaydet.Click += new System.EventHandler(this.BtnKaydet_Click);
             // 
             // BtnGuncelle
             // 
@@ -384,22 +385,22 @@
             this.BtnResimSec.TabIndex = 15;
             this.BtnResimSec.Text = "Resim Seç";
             // 
-            // richTextBox1
+            // RchAdres
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(81, 143);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(198, 110);
-            this.richTextBox1.TabIndex = 13;
-            this.richTextBox1.Text = "";
+            this.RchAdres.Location = new System.Drawing.Point(81, 143);
+            this.RchAdres.Name = "RchAdres";
+            this.RchAdres.Size = new System.Drawing.Size(198, 110);
+            this.RchAdres.TabIndex = 13;
+            this.RchAdres.Text = "";
             // 
-            // textEdit2
+            // TxtMail
             // 
-            this.textEdit2.Location = new System.Drawing.Point(81, 106);
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.textEdit2.Properties.Appearance.Options.UseFont = true;
-            this.textEdit2.Size = new System.Drawing.Size(198, 24);
-            this.textEdit2.TabIndex = 12;
+            this.TxtMail.Location = new System.Drawing.Point(81, 106);
+            this.TxtMail.Name = "TxtMail";
+            this.TxtMail.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
+            this.TxtMail.Properties.Appearance.Options.UseFont = true;
+            this.TxtMail.Size = new System.Drawing.Size(198, 24);
+            this.TxtMail.TabIndex = 12;
             // 
             // labelControl9
             // 
@@ -475,7 +476,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
             this.groupControl2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TxtMail.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
@@ -504,8 +505,8 @@
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage2;
         private DevExpress.XtraEditors.GroupControl groupControl2;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private DevExpress.XtraEditors.TextEdit textEdit2;
+        private System.Windows.Forms.RichTextBox RchAdres;
+        private DevExpress.XtraEditors.TextEdit TxtMail;
         private DevExpress.XtraEditors.LabelControl labelControl9;
         private DevExpress.XtraEditors.LabelControl labelControl10;
         private DevExpress.XtraEditors.SimpleButton BtnKaydet;
