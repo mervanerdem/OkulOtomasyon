@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmTeachers));
             this.teachersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.okulDataSet3 = new OkulOtomasyon.OkulDataSet3();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
@@ -63,12 +62,9 @@
             this.TxtMail = new DevExpress.XtraEditors.TextEdit();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
-            this.teachersTableAdapter1 = new OkulOtomasyon.OkulDataSet2TableAdapters.TeachersTableAdapter();
-            this.teachersTableAdapter = new OkulOtomasyon.OkulDataSet3TableAdapters.TeachersTableAdapter();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             ((System.ComponentModel.ISupportInitialize)(this.teachersBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.okulDataSet3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
@@ -92,12 +88,6 @@
             // teachersBindingSource
             // 
             this.teachersBindingSource.DataMember = "Teachers";
-            this.teachersBindingSource.DataSource = this.okulDataSet3;
-            // 
-            // okulDataSet3
-            // 
-            this.okulDataSet3.DataSetName = "OkulDataSet3";
-            this.okulDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // xtraTabControl1
             // 
@@ -422,14 +412,6 @@
             this.labelControl10.TabIndex = 10;
             this.labelControl10.Text = "Mail:";
             // 
-            // teachersTableAdapter1
-            // 
-            this.teachersTableAdapter1.ClearBeforeFill = true;
-            // 
-            // teachersTableAdapter
-            // 
-            this.teachersTableAdapter.ClearBeforeFill = true;
-            // 
             // gridControl1
             // 
             this.gridControl1.Location = new System.Drawing.Point(1, 2);
@@ -442,6 +424,11 @@
             // 
             // gridView1
             // 
+            this.gridView1.Appearance.Row.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.gridView1.Appearance.Row.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.gridView1.Appearance.Row.BorderColor = System.Drawing.Color.Silver;
+            this.gridView1.Appearance.Row.Options.UseBackColor = true;
+            this.gridView1.Appearance.Row.Options.UseBorderColor = true;
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowGroupPanel = false;
@@ -458,7 +445,6 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmTeachers_Load);
             ((System.ComponentModel.ISupportInitialize)(this.teachersBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.okulDataSet3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.xtraTabControl1.ResumeLayout(false);
             this.xtraTabPage1.ResumeLayout(false);
@@ -514,10 +500,9 @@
         private DevExpress.XtraEditors.SimpleButton BtnSil;
         private DevExpress.XtraEditors.SimpleButton BtnTemizle;
         private DevExpress.XtraEditors.SimpleButton BtnResimSec;
-        private OkulDataSet2TableAdapters.TeachersTableAdapter teachersTableAdapter1;
-        private OkulDataSet3 okulDataSet3;
+       
         private System.Windows.Forms.BindingSource teachersBindingSource;
-        private OkulDataSet3TableAdapters.TeachersTableAdapter teachersTableAdapter;
+
         private DevExpress.XtraEditors.PictureEdit PctResim;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
