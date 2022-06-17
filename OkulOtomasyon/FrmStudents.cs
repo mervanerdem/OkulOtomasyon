@@ -106,5 +106,102 @@ namespace OkulOtomasyon
             MessageBox.Show("Öğrenci başarıyla eklendi.","Bilgi",MessageBoxButtons.OK,MessageBoxIcon.Information);
             listele();
         }
+
+        private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            DataRow dr = gridView1.GetDataRow(gridView1.FocusedRowHandle);
+
+            if (dr != null)
+            {
+                TxtID.Text = dr["OgrenciID"].ToString();
+                TxtAd.Text = dr["OgrenciAdı"].ToString();
+                TxtSoyad.Text = dr["OgrenciSoyadı"].ToString();
+                MskTc.Text = dr["OgrenciTC"].ToString();
+                MskOgrenciNo.Text = dr["OgrenciNo"].ToString();
+                CmbxSınıf.Text = dr["OgrenciSınıf"].ToString();
+                if (dr["OgrenciCinsiyet"].ToString() == "E")
+                {
+                    RdBtnErkek.Checked = true;
+                }
+                if (dr["OgrenciCinsiyet"].ToString() == "K")
+                {
+                    RdBtnKadın.Checked = true;
+                }
+                RchAdres.Text = dr["OgrenciAdres"].ToString();
+                dateEdit1.Text = dr["OgrenciDogumT"].ToString();
+            }
+        }
+
+        private void gridView2_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            DataRow dr = gridView2.GetDataRow(gridView2.FocusedRowHandle);
+            if (dr != null)
+            {
+                TxtID.Text = dr["OgrenciID"].ToString();
+                TxtAd.Text = dr["OgrenciAdı"].ToString();
+                TxtSoyad.Text = dr["OgrenciSoyadı"].ToString();
+                MskTc.Text = dr["OgrenciTC"].ToString();
+                MskOgrenciNo.Text = dr["OgrenciNo"].ToString();
+                CmbxSınıf.Text = dr["OgrenciSınıf"].ToString();
+                if (dr["OgrenciCinsiyet"].ToString() == "E")
+                {
+                    RdBtnErkek.Checked = true;
+                }
+                if (dr["OgrenciCinsiyet"].ToString() == "K")
+                {
+                    RdBtnKadın.Checked = true;
+                }
+                RchAdres.Text = dr["OgrenciAdres"].ToString();
+                dateEdit1.Text = dr["OgrenciDogumT"].ToString();
+            }
+        }
+
+        private void gridView3_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            DataRow dr = gridView3.GetDataRow(gridView3.FocusedRowHandle);
+            if (dr != null)
+            {
+                TxtID.Text = dr["OgrenciID"].ToString();
+                TxtAd.Text = dr["OgrenciAdı"].ToString();
+                TxtSoyad.Text = dr["OgrenciSoyadı"].ToString();
+                MskTc.Text = dr["OgrenciTC"].ToString();
+                MskOgrenciNo.Text = dr["OgrenciNo"].ToString();
+                CmbxSınıf.Text = dr["OgrenciSınıf"].ToString();
+                if (dr["OgrenciCinsiyet"].ToString() == "E")
+                {
+                    RdBtnErkek.Checked = true;
+                }
+                if (dr["OgrenciCinsiyet"].ToString() == "K")
+                {
+                    RdBtnKadın.Checked = true;
+                }
+                RchAdres.Text = dr["OgrenciAdres"].ToString();
+                dateEdit1.Text = dr["OgrenciDogumT"].ToString();
+            }
+        }
+
+        private void gridView4_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            DataRow dr = gridView4.GetDataRow(gridView4.FocusedRowHandle);
+            if (dr != null)
+            {
+                TxtID.Text = dr["OgrenciID"].ToString();
+                TxtAd.Text = dr["OgrenciAdı"].ToString();
+                TxtSoyad.Text = dr["OgrenciSoyadı"].ToString();
+                MskTc.Text = dr["OgrenciTC"].ToString();
+                MskOgrenciNo.Text = dr["OgrenciNo"].ToString();
+                CmbxSınıf.Text = dr["OgrenciSınıf"].ToString();
+                if (dr["OgrenciCinsiyet"].ToString() == "E")
+                {
+                    RdBtnErkek.Checked = true;
+                }
+                if (dr["OgrenciCinsiyet"].ToString() == "K")
+                {
+                    RdBtnKadın.Checked = true;
+                }
+                RchAdres.Text = dr["OgrenciAdres"].ToString();
+                dateEdit1.Text = dr["OgrenciDogumT"].ToString();
+            }
+        }
     }
 }
