@@ -256,6 +256,7 @@
             this.PctEditOgrenci.Location = new System.Drawing.Point(170, 5);
             this.PctEditOgrenci.Name = "PctEditOgrenci";
             this.PctEditOgrenci.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.PctEditOgrenci.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
             this.PctEditOgrenci.Size = new System.Drawing.Size(120, 124);
             this.PctEditOgrenci.TabIndex = 16;
             // 
@@ -435,6 +436,7 @@
             this.BtnResimSec.Size = new System.Drawing.Size(198, 36);
             this.BtnResimSec.TabIndex = 15;
             this.BtnResimSec.Text = "Resim Seç";
+            this.BtnResimSec.Click += new System.EventHandler(this.BtnResimSec_Click);
             // 
             // RchAdres
             // 

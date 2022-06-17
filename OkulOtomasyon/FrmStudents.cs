@@ -83,7 +83,7 @@ namespace OkulOtomasyon
         private void BtnKaydet_Click(object sender, EventArgs e)
         {
             SqlCommand komut = new SqlCommand("Insert Into Students (OgrenciAdı,OgrenciSoyadı,OgrenciNo,OgrenciTC,OgrenciSınıf,OgrenciDogumT," +
-                "OgrenciCinsiyet,OgrenciAdres) Values (@p1,@p2,@p3,@p4,@p5,@p6,@p7,@p8)", bgl.baglanti());
+                "OgrenciCinsiyet,OgrenciAdres) Values (@p1,@p2,@p3,@p4,@p5,@p6,@p7,@p8,@p9)", bgl.baglanti());
             komut.Parameters.AddWithValue("@p1", TxtAd.Text);
             komut.Parameters.AddWithValue("@p2", TxtSoyad.Text);
             komut.Parameters.AddWithValue("@p3", MskOgrenciNo.Text);
@@ -100,6 +100,7 @@ namespace OkulOtomasyon
             }
 
             komut.Parameters.AddWithValue("@p8", RchAdres.Text);
+            komut.Parameters.AddWithValue("@p9", Path.GetFileName(newPath));
 
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
@@ -129,6 +130,8 @@ namespace OkulOtomasyon
                 }
                 RchAdres.Text = dr["OgrenciAdres"].ToString();
                 dateEdit1.Text = dr["OgrenciDogumT"].ToString();
+                newPath = "D:\\Mervan\\OkulOtomasyon" + "\\Resimler\\" + dr["OgrenciFoto"].ToString();
+                PctEditOgrenci.Image = Image.FromFile(newPath);
             }
         }
 
@@ -153,6 +156,8 @@ namespace OkulOtomasyon
                 }
                 RchAdres.Text = dr["OgrenciAdres"].ToString();
                 dateEdit1.Text = dr["OgrenciDogumT"].ToString();
+                newPath = "D:\\Mervan\\OkulOtomasyon" + "\\Resimler\\" + dr["OgrenciFoto"].ToString();
+                PctEditOgrenci.Image = Image.FromFile(newPath);
             }
         }
 
@@ -177,6 +182,8 @@ namespace OkulOtomasyon
                 }
                 RchAdres.Text = dr["OgrenciAdres"].ToString();
                 dateEdit1.Text = dr["OgrenciDogumT"].ToString();
+                newPath = "D:\\Mervan\\OkulOtomasyon" + "\\Resimler\\" + dr["OgrenciFoto"].ToString();
+                PctEditOgrenci.Image = Image.FromFile(newPath);
             }
         }
 
@@ -201,7 +208,22 @@ namespace OkulOtomasyon
                 }
                 RchAdres.Text = dr["OgrenciAdres"].ToString();
                 dateEdit1.Text = dr["OgrenciDogumT"].ToString();
+                newPath = "D:\\Mervan\\OkulOtomasyon" + "\\Resimler\\" + dr["OgrenciFoto"].ToString();
+                PctEditOgrenci.Image = Image.FromFile(newPath);
             }
+        }
+
+        public string newPath;
+        private void BtnResimSec_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dosya = new OpenFileDialog();
+            dosya.Filter = "Resim Dosyası |*.jpeg;*.png;*.jpg;*.nef | Tüm dosyalar | *.*";
+            dosya.ShowDialog();
+
+            string filePath = dosya.FileName;
+            newPath = "D:\\Mervan\\OkulOtomasyon" + "\\Resimler\\" + Guid.NewGuid().ToString() + ".jpeg";
+            File.Copy(filePath, newPath);
+            PctEditOgrenci.Image = Image.FromFile(filePath);
         }
     }
 }
