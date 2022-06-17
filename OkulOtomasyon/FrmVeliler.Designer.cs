@@ -294,6 +294,7 @@
             this.Controls.Add(this.gridControl1);
             this.Name = "FrmVeliler";
             this.Text = "FrmVeliler";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmVeliler_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();

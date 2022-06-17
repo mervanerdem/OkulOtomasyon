@@ -162,6 +162,7 @@
             this.lookUpEdit1.Properties.Appearance.Options.UseFont = true;
             this.lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpEdit1.Properties.NullText = "Ebeveyn Giriniz...";
             this.lookUpEdit1.Size = new System.Drawing.Size(198, 24);
             this.lookUpEdit1.TabIndex = 25;
             // 
@@ -609,7 +610,7 @@
             this.Controls.Add(this.xtraTabControl2);
             this.Controls.Add(this.xtraTabControl1);
             this.Name = "FrmStudent";
-            this.Text = "Form1";
+            this.Text = "Öğrenciler";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmStudent_Load);
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();

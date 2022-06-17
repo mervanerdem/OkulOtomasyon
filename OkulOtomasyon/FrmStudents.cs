@@ -48,10 +48,22 @@ namespace OkulOtomasyon
             GrdCtr8.DataSource = dt4;
         }
 
+        void veliListesi()
+        {
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("Select VeliID,(VeliAnne+' | '+VeliBaba) AS VeliAnneBaba from Veliler", bgl.baglanti());
+            da.Fill(dt);
+            lookUpEdit1.Properties.ValueMember = "VeliID";
+            lookUpEdit1.Properties.DisplayMember = "VeliAnneBaba";
+            lookUpEdit1.Properties.DataSource = dt;
+
+        }
+
         private void FrmStudent_Load(object sender, EventArgs e)
         {
             listele();
             temizle();
+            veliListesi();
         }
 
 
