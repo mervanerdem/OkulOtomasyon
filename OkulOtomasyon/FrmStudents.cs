@@ -51,6 +51,7 @@ namespace OkulOtomasyon
         private void FrmStudent_Load(object sender, EventArgs e)
         {
             listele();
+            temizle();
         }
 
 
@@ -224,6 +225,71 @@ namespace OkulOtomasyon
             newPath = "D:\\Mervan\\OkulOtomasyon" + "\\Resimler\\" + Guid.NewGuid().ToString() + ".jpeg";
             File.Copy(filePath, newPath);
             PctEditOgrenci.Image = Image.FromFile(filePath);
+        }
+
+        private void BtnGuncelle_Click(object sender, EventArgs e)
+        {
+            SqlCommand komut = new SqlCommand("Update Students set " +
+                "OgrenciAdı = @p1,OgrenciSoyadı = @p2 ,OgrenciNo = @p3, OgrenciTC = @p4," +
+                "OgrenciSınıf = @p5, OgrenciDogumT = @p6, OgrenciCinsiyet = @p7, OgrenciAdres = @p8," +
+                "OgrenciFoto = @p9 Where OgrenciID = @p10", bgl.baglanti());
+
+            komut.Parameters.AddWithValue("@p1", TxtAd.Text);
+            komut.Parameters.AddWithValue("@p2", TxtSoyad.Text);
+            komut.Parameters.AddWithValue("@p3", MskOgrenciNo.Text);
+            komut.Parameters.AddWithValue("@p4", MskTc.Text);
+            komut.Parameters.AddWithValue("@p5", CmbxSınıf.Text);
+            komut.Parameters.AddWithValue("@p6", dateEdit1.Text);
+            if (RdBtnErkek.Checked == true)
+            {
+                komut.Parameters.AddWithValue("@p7", cinsiyet = "E");
+            }
+            if (RdBtnKadın.Checked == true)
+            {
+                komut.Parameters.AddWithValue("@p7", cinsiyet = "K");
+            }
+
+            komut.Parameters.AddWithValue("@p8", RchAdres.Text);
+            komut.Parameters.AddWithValue("@p9", Path.GetFileName(newPath));
+            komut.Parameters.AddWithValue("@p10", TxtID.Text);
+
+            komut.ExecuteNonQuery();
+            bgl.baglanti().Close();
+            MessageBox.Show("Öğrenci başarıyla Güncellendi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            listele();
+
+        }
+
+        private void BtnSil_Click(object sender, EventArgs e)
+        {
+            SqlCommand komut = new SqlCommand("Delete From Students Where OgrenciID = @p1", bgl.baglanti());
+            komut.Parameters.AddWithValue("@p1", TxtID.Text);
+            komut.ExecuteNonQuery();
+            bgl.baglanti();
+            MessageBox.Show("Personel Silindi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            listele();
+        }
+
+        void temizle()
+        {
+            TxtID.Text = "";
+            TxtAd.Text = "";
+            TxtSoyad.Text = "";
+            MskTc.Text = "";
+            MskOgrenciNo.Text = "";
+            CmbxSınıf.Text = "";
+            dateEdit1.Text = "";
+            RchAdres.Text = "";
+            RdBtnErkek.Checked = false;
+            RdBtnKadın.Checked = false;
+            dateEdit1.Text = "";
+            PctEditOgrenci.Text = "";
+        }
+
+        private void BtnTemizle_Click(object sender, EventArgs e)
+        {
+            temizle();
+
         }
     }
 }

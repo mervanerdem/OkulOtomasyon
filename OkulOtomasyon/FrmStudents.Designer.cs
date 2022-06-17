@@ -409,6 +409,7 @@
             this.BtnGuncelle.Size = new System.Drawing.Size(198, 36);
             this.BtnGuncelle.TabIndex = 18;
             this.BtnGuncelle.Text = "Güncelle";
+            this.BtnGuncelle.Click += new System.EventHandler(this.BtnGuncelle_Click);
             // 
             // BtnSil
             // 
@@ -418,6 +419,7 @@
             this.BtnSil.Size = new System.Drawing.Size(198, 36);
             this.BtnSil.TabIndex = 17;
             this.BtnSil.Text = "Sil";
+            this.BtnSil.Click += new System.EventHandler(this.BtnSil_Click);
             // 
             // BtnTemizle
             // 
@@ -427,6 +429,7 @@
             this.BtnTemizle.Size = new System.Drawing.Size(198, 36);
             this.BtnTemizle.TabIndex = 16;
             this.BtnTemizle.Text = "Temizle";
+            this.BtnTemizle.Click += new System.EventHandler(this.BtnTemizle_Click);
             // 
             // BtnResimSec
             // 
