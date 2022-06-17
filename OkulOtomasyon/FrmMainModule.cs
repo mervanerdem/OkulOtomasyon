@@ -17,10 +17,6 @@ namespace OkulOtomasyon
             InitializeComponent();
         }
 
-        private void wizardControl1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -32,9 +28,15 @@ namespace OkulOtomasyon
 
         }
 
-        private void barButtonItem3_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        FrmStudent student;
+        private void BtnOgrenci_ItemClickbar(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            if (student == null || student.IsDisposed)
+            {
+                student = new FrmStudent();
+                student.MdiParent = this;
+                student.Show();
+            }
         }
 
         private void barButtonItem4_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

@@ -208,7 +208,6 @@
             this.labelControl6.Size = new System.Drawing.Size(54, 18);
             this.labelControl6.TabIndex = 21;
             this.labelControl6.Text = "Cinsiyet:";
-
             // 
             // RdBtnKadın
             // 
@@ -243,7 +242,6 @@
             this.labelControl5.Size = new System.Drawing.Size(77, 18);
             this.labelControl5.TabIndex = 18;
             this.labelControl5.Text = "Öğrenci No:";
-
             // 
             // MskOgrenciNo
             // 
@@ -269,6 +267,11 @@
             this.CmbxSınıf.Properties.Appearance.Options.UseFont = true;
             this.CmbxSınıf.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.CmbxSınıf.Properties.Items.AddRange(new object[] {
+            "5.Sınıf",
+            "6.Sınıf",
+            "7.Sınıf",
+            "8.Sınıf"});
             this.CmbxSınıf.Size = new System.Drawing.Size(198, 24);
             this.CmbxSınıf.TabIndex = 15;
             // 
@@ -319,7 +322,6 @@
             this.labelControl8.Size = new System.Drawing.Size(30, 18);
             this.labelControl8.TabIndex = 7;
             this.labelControl8.Text = "Sınıf:";
-
             // 
             // labelControl4
             // 
@@ -330,7 +332,6 @@
             this.labelControl4.Size = new System.Drawing.Size(24, 18);
             this.labelControl4.TabIndex = 3;
             this.labelControl4.Text = "TC:";
-
             // 
             // labelControl3
             // 
@@ -513,6 +514,7 @@
             this.GrdCtr6.TabIndex = 3;
             this.GrdCtr6.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
+            this.GrdCtr6.Click += new System.EventHandler(this.GrdCtr6_Click);
             // 
             // gridView2
             // 

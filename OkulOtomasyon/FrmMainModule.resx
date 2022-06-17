@@ -211,7 +211,7 @@
   <data name="barButtonItem2.ItemAppearance.Normal.Font" type="System.Drawing.Font, System.Drawing">
     <value>Tahoma, 11pt</value>
   </data>
-  <data name="barButtonItem3.Caption" xml:space="preserve">
+  <data name="BtnOgrenci.Caption" xml:space="preserve">
     <value>ÖĞRENCİLER</value>
   </data>
   <data name="barButtonItem3.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -891,10 +891,10 @@
   <data name="&gt;&gt;barButtonItem2.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;barButtonItem3.Name" xml:space="preserve">
-    <value>barButtonItem3</value>
+  <data name="&gt;&gt;BtnOgrenci.Name" xml:space="preserve">
+    <value>BtnOgrenci</value>
   </data>
-  <data name="&gt;&gt;barButtonItem3.Type" xml:space="preserve">
+  <data name="&gt;&gt;BtnOgrenci.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;barButtonItem4.Name" xml:space="preserve">
