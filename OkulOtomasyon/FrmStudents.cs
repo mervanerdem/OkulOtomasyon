@@ -77,5 +77,34 @@ namespace OkulOtomasyon
         {
 
         }
+        public string cinsiyet;
+
+
+        private void BtnKaydet_Click(object sender, EventArgs e)
+        {
+            SqlCommand komut = new SqlCommand("Insert Into Students (OgrenciAdı,OgrenciSoyadı,OgrenciNo,OgrenciTC,OgrenciSınıf,OgrenciDogumT," +
+                "OgrenciCinsiyet,OgrenciAdres) Values (@p1,@p2,@p3,@p4,@p5,@p6,@p7,@p8)", bgl.baglanti());
+            komut.Parameters.AddWithValue("@p1", TxtAd.Text);
+            komut.Parameters.AddWithValue("@p2", TxtSoyad.Text);
+            komut.Parameters.AddWithValue("@p3", MskOgrenciNo.Text);
+            komut.Parameters.AddWithValue("@p4", MskTc.Text);
+            komut.Parameters.AddWithValue("@p5", CmbxSınıf.Text);
+            komut.Parameters.AddWithValue("@p6", dateEdit1.Text);
+            if (RdBtnErkek.Checked == true)
+            {
+                komut.Parameters.AddWithValue("@p7", cinsiyet="E");
+            }
+            if (RdBtnKadın.Checked == true)
+            {
+                komut.Parameters.AddWithValue("@p7", cinsiyet = "K");
+            }
+
+            komut.Parameters.AddWithValue("@p8", RchAdres.Text);
+
+            komut.ExecuteNonQuery();
+            bgl.baglanti().Close();
+            MessageBox.Show("Öğrenci başarıyla eklendi.","Bilgi",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            listele();
+        }
     }
 }

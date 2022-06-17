@@ -242,5 +242,10 @@ namespace OkulOtomasyon
         {
             temizle();
         }
+
+        private void gridControl1_Click_2(object sender, EventArgs e)
+        {
+
+        }
     }
 }

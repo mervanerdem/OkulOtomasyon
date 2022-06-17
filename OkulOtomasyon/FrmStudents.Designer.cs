@@ -398,6 +398,7 @@
             this.BtnKaydet.Size = new System.Drawing.Size(198, 36);
             this.BtnKaydet.TabIndex = 19;
             this.BtnKaydet.Text = "Kaydet";
+            this.BtnKaydet.Click += new System.EventHandler(this.BtnKaydet_Click);
             // 
             // BtnGuncelle
             // 
