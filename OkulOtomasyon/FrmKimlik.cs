@@ -16,5 +16,18 @@ namespace OkulOtomasyon
         {
             InitializeComponent();
         }
+
+        public string ad, soyad, tc, cinsiyet, dogTarihi, foto;
+
+        private void FrmKimlik_Load(object sender, EventArgs e)
+        {
+            LblAd.Text = ad;
+            LblSoyad.Text = soyad;
+            LblTC.Text = tc;
+            LblCinsiyet.Text = cinsiyet;
+            LblDogumT.Text = dogTarihi;
+            pictureEdit1.Image = Image.FromFile(foto);
+
+        }
     }
 }

@@ -55,10 +55,6 @@ namespace OkulOtomasyon
         }
 
 
-
-
-
-
         private void labelControl3_Click(object sender, EventArgs e)
         {
 
@@ -290,6 +286,74 @@ namespace OkulOtomasyon
         {
             temizle();
 
+        }
+
+        private void gridView1_DoubleClick(object sender, EventArgs e)
+        {
+            DataRow dr = gridView1.GetDataRow(gridView1.FocusedRowHandle);
+            FrmKimlik frm = new FrmKimlik();
+
+            if (dr != null)
+            {
+                frm.ad = dr["OgrenciAdı"].ToString();
+                frm.soyad = dr["OgrenciSoyadı"].ToString();
+                frm.tc = dr["OgrenciTC"].ToString();
+                frm.cinsiyet = dr["OgrenciCinsiyet"].ToString();
+                frm.dogTarihi = dr["OgrenciDogumT"].ToString();
+                frm.foto = newPath = "D:\\Mervan\\OkulOtomasyon" + "\\Resimler\\" + dr["OgrenciFoto"].ToString();
+            }
+            frm.Show();
+        }
+
+        private void gridView2_DoubleClick(object sender, EventArgs e)
+        {
+            DataRow dr = gridView2.GetDataRow(gridView2.FocusedRowHandle);
+            FrmKimlik frm = new FrmKimlik();
+
+            if (dr != null)
+            {
+                frm.ad = dr["OgrenciAdı"].ToString();
+                frm.soyad = dr["OgrenciSoyadı"].ToString();
+                frm.tc = dr["OgrenciTC"].ToString();
+                frm.cinsiyet = dr["OgrenciCinsiyet"].ToString();
+                frm.dogTarihi = dr["OgrenciDogumT"].ToString();
+                frm.foto = newPath = "D:\\Mervan\\OkulOtomasyon" + "\\Resimler\\" + dr["OgrenciFoto"].ToString();
+            }
+            frm.Show();
+        }
+
+        private void gridView3_DoubleClick(object sender, EventArgs e)
+        {
+            DataRow dr = gridView3.GetDataRow(gridView3.FocusedRowHandle);
+            FrmKimlik frm = new FrmKimlik();
+
+            if (dr != null)
+            {
+                frm.ad = dr["OgrenciAdı"].ToString();
+                frm.soyad = dr["OgrenciSoyadı"].ToString();
+                frm.tc = dr["OgrenciTC"].ToString();
+                frm.cinsiyet = dr["OgrenciCinsiyet"].ToString();
+                frm.dogTarihi = dr["OgrenciDogumT"].ToString();
+                frm.foto = newPath = "D:\\Mervan\\OkulOtomasyon" + "\\Resimler\\" + dr["OgrenciFoto"].ToString();
+            }
+            frm.Show();
+        }
+
+        private void gridView4_DoubleClick(object sender, EventArgs e)
+        {
+            DataRow dr = gridView4.GetDataRow(gridView4.FocusedRowHandle);
+            FrmKimlik frm = new FrmKimlik();
+
+            if (dr != null)
+            {
+                frm.ad = dr["OgrenciAdı"].ToString();
+                frm.soyad = dr["OgrenciSoyadı"].ToString();
+                frm.tc = dr["OgrenciTC"].ToString();
+                frm.cinsiyet = dr["OgrenciCinsiyet"].ToString();
+                frm.dogTarihi = dr["OgrenciDogumT"].ToString();
+                frm.foto = newPath = "D:\\Mervan\\OkulOtomasyon" + "\\Resimler\\" + dr["OgrenciFoto"].ToString();
+            }
+            frm.Show();
         }
     }
 }

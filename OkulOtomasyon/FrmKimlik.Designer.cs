@@ -84,6 +84,7 @@
             this.pictureEdit1.Location = new System.Drawing.Point(23, 82);
             this.pictureEdit1.Name = "pictureEdit1";
             this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
             this.pictureEdit1.Size = new System.Drawing.Size(83, 95);
             this.pictureEdit1.TabIndex = 6;
             // 
@@ -106,7 +107,8 @@
             this.MaximizeBox = false;
             this.Name = "FrmKimlik";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmKimlik";
+            this.Text = "Öğrenci Kimlik Kartı";
+            this.Load += new System.EventHandler(this.FrmKimlik_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
