@@ -39,8 +39,16 @@ namespace OkulOtomasyon
             }
         }
 
+        FrmVeliler Veli;
+
         private void barButtonItem4_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            if (Veli == null || Veli.IsDisposed)
+            {
+                Veli = new FrmVeliler();
+                Veli.MdiParent = this;
+                Veli.Show();
+            }
 
         }
 
