@@ -34,7 +34,7 @@
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.PctResim = new DevExpress.XtraEditors.PictureEdit();
+            this.PcrResim = new System.Windows.Forms.PictureBox();
             this.CmbxBrans = new DevExpress.XtraEditors.ComboBoxEdit();
             this.Cmbxilce = new DevExpress.XtraEditors.ComboBoxEdit();
             this.MskTel = new System.Windows.Forms.MaskedTextBox();
@@ -70,7 +70,7 @@
             this.xtraTabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PctResim.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PcrResim)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CmbxBrans.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Cmbxilce.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Cmbxil.Properties)).BeginInit();
@@ -110,7 +110,7 @@
             // 
             // groupControl1
             // 
-            this.groupControl1.Controls.Add(this.PctResim);
+            this.groupControl1.Controls.Add(this.PcrResim);
             this.groupControl1.Controls.Add(this.CmbxBrans);
             this.groupControl1.Controls.Add(this.Cmbxilce);
             this.groupControl1.Controls.Add(this.MskTel);
@@ -134,13 +134,14 @@
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "groupControl1";
             // 
-            // PctResim
+            // PcrResim
             // 
-            this.PctResim.Location = new System.Drawing.Point(172, 5);
-            this.PctResim.Name = "PctResim";
-            this.PctResim.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.PctResim.Size = new System.Drawing.Size(118, 124);
-            this.PctResim.TabIndex = 16;
+            this.PcrResim.Location = new System.Drawing.Point(164, 5);
+            this.PcrResim.Name = "PcrResim";
+            this.PcrResim.Size = new System.Drawing.Size(126, 124);
+            this.PcrResim.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PcrResim.TabIndex = 16;
+            this.PcrResim.TabStop = false;
             // 
             // CmbxBrans
             // 
@@ -216,6 +217,7 @@
             // TxtID
             // 
             this.TxtID.EditValue = "";
+            this.TxtID.Enabled = false;
             this.TxtID.Location = new System.Drawing.Point(92, 135);
             this.TxtID.Name = "TxtID";
             this.TxtID.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
@@ -347,6 +349,7 @@
             this.BtnGuncelle.Size = new System.Drawing.Size(198, 36);
             this.BtnGuncelle.TabIndex = 18;
             this.BtnGuncelle.Text = "Güncelle";
+            this.BtnGuncelle.Click += new System.EventHandler(this.BtnGuncelle_Click);
             // 
             // BtnSil
             // 
@@ -356,6 +359,7 @@
             this.BtnSil.Size = new System.Drawing.Size(198, 36);
             this.BtnSil.TabIndex = 17;
             this.BtnSil.Text = "Sil";
+            this.BtnSil.Click += new System.EventHandler(this.BtnSil_Click);
             // 
             // BtnTemizle
             // 
@@ -365,6 +369,7 @@
             this.BtnTemizle.Size = new System.Drawing.Size(198, 36);
             this.BtnTemizle.TabIndex = 16;
             this.BtnTemizle.Text = "Temizle";
+            this.BtnTemizle.Click += new System.EventHandler(this.BtnTemizle_Click);
             // 
             // BtnResimSec
             // 
@@ -374,6 +379,7 @@
             this.BtnResimSec.Size = new System.Drawing.Size(198, 36);
             this.BtnResimSec.TabIndex = 15;
             this.BtnResimSec.Text = "Resim Seç";
+            this.BtnResimSec.Click += new System.EventHandler(this.BtnResimSec_Click);
             // 
             // RchAdres
             // 
@@ -432,6 +438,7 @@
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.gridView1.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView1_FocusedRowChanged);
             // 
             // FrmTeachers
             // 
@@ -451,7 +458,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PctResim.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PcrResim)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CmbxBrans.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Cmbxilce.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Cmbxil.Properties)).EndInit();
@@ -502,9 +509,8 @@
         private DevExpress.XtraEditors.SimpleButton BtnResimSec;
        
         private System.Windows.Forms.BindingSource teachersBindingSource;
-
-        private DevExpress.XtraEditors.PictureEdit PctResim;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private System.Windows.Forms.PictureBox PcrResim;
     }
 }
