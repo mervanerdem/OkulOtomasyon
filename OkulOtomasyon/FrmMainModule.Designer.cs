@@ -42,7 +42,7 @@
             this.barButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
             this.Kasa = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem11 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem12 = new DevExpress.XtraBars.BarButtonItem();
+            this.BtnAyarlar = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
             this.BtnOgretmen = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -75,7 +75,7 @@
             this.barButtonItem10,
             this.Kasa,
             this.barButtonItem11,
-            this.barButtonItem12,
+            this.BtnAyarlar,
             this.barButtonItem7,
             this.BtnOgretmen});
             resources.ApplyResources(this.ribbonControl1, "ribbonControl1");
@@ -122,8 +122,8 @@
             // 
             resources.ApplyResources(this.BtnVeliler, "BtnVeliler");
             this.BtnVeliler.Id = 4;
-            this.BtnVeliler.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem4.ImageOptions.SvgImage")));
-            this.BtnVeliler.ItemAppearance.Normal.Font = ((System.Drawing.Font)(resources.GetObject("barButtonItem4.ItemAppearance.Normal.Font")));
+            this.BtnVeliler.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("BtnVeliler.ImageOptions.SvgImage")));
+            this.BtnVeliler.ItemAppearance.Normal.Font = ((System.Drawing.Font)(resources.GetObject("BtnVeliler.ItemAppearance.Normal.Font")));
             this.BtnVeliler.ItemAppearance.Normal.Options.UseFont = true;
             this.BtnVeliler.Name = "BtnVeliler";
             this.BtnVeliler.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem4_ItemClick);
@@ -193,14 +193,15 @@
             this.barButtonItem11.ItemAppearance.Normal.Options.UseFont = true;
             this.barButtonItem11.Name = "barButtonItem11";
             // 
-            // barButtonItem12
+            // BtnAyarlar
             // 
-            resources.ApplyResources(this.barButtonItem12, "barButtonItem12");
-            this.barButtonItem12.Id = 13;
-            this.barButtonItem12.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem12.ImageOptions.SvgImage")));
-            this.barButtonItem12.ItemAppearance.Normal.Font = ((System.Drawing.Font)(resources.GetObject("barButtonItem12.ItemAppearance.Normal.Font")));
-            this.barButtonItem12.ItemAppearance.Normal.Options.UseFont = true;
-            this.barButtonItem12.Name = "barButtonItem12";
+            resources.ApplyResources(this.BtnAyarlar, "BtnAyarlar");
+            this.BtnAyarlar.Id = 13;
+            this.BtnAyarlar.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem12.ImageOptions.SvgImage")));
+            this.BtnAyarlar.ItemAppearance.Normal.Font = ((System.Drawing.Font)(resources.GetObject("barButtonItem12.ItemAppearance.Normal.Font")));
+            this.BtnAyarlar.ItemAppearance.Normal.Options.UseFont = true;
+            this.BtnAyarlar.Name = "BtnAyarlar";
+            this.BtnAyarlar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BtnAyarlar_ItemClick);
             // 
             // barButtonItem7
             // 
@@ -267,7 +268,7 @@
             // 
             // ribbonPageGroup5
             // 
-            this.ribbonPageGroup5.ItemLinks.Add(this.barButtonItem12);
+            this.ribbonPageGroup5.ItemLinks.Add(this.BtnAyarlar);
             this.ribbonPageGroup5.Name = "ribbonPageGroup5";
             resources.ApplyResources(this.ribbonPageGroup5, "ribbonPageGroup5");
             // 
@@ -318,7 +319,7 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem10;
         private DevExpress.XtraBars.BarButtonItem Kasa;
         private DevExpress.XtraBars.BarButtonItem barButtonItem11;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem12;
+        private DevExpress.XtraBars.BarButtonItem BtnAyarlar;
         private DevExpress.XtraBars.BarButtonItem barButtonItem13;
         private DevExpress.XtraBars.BarButtonItem barButtonItem7;
         private DevExpress.XtraBars.BarButtonItem BtnOgretmen;

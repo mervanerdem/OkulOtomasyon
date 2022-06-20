@@ -86,5 +86,16 @@ namespace OkulOtomasyon
         {
 
         }
+
+        FrmAyarlar ayarlar;
+        private void BtnAyarlar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (ayarlar == null || ayarlar.IsDisposed)
+            {
+                ayarlar = new FrmAyarlar();
+                ayarlar.MdiParent = this;
+                ayarlar.Show();
+            }
+        }
     }
 }

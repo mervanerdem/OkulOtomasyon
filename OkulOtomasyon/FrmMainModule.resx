@@ -289,7 +289,7 @@
   <data name="BtnVeliler.Caption" xml:space="preserve">
     <value>VELİLER</value>
   </data>
-  <data name="barButtonItem4.ImageOptions.SvgImage" type="DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.2" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="BtnVeliler.ImageOptions.SvgImage" type="DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.2" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFlEZXZFeHByZXNzLkRhdGEudjIxLjIsIFZlcnNpb249MjEuMi42
         LjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjg4ZDE3NTRkNzAwZTQ5YQUBAAAAHURl
@@ -327,7 +327,7 @@
         c3ZnPgs=
 </value>
   </data>
-  <data name="barButtonItem4.ItemAppearance.Normal.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="BtnVeliler.ItemAppearance.Normal.Font" type="System.Drawing.Font, System.Drawing">
     <value>Tahoma, 11pt</value>
   </data>
   <data name="barButtonItem5.Caption" xml:space="preserve">
@@ -588,7 +588,7 @@
   <data name="barButtonItem11.ItemAppearance.Normal.Font" type="System.Drawing.Font, System.Drawing">
     <value>Tahoma, 11pt</value>
   </data>
-  <data name="barButtonItem12.Caption" xml:space="preserve">
+  <data name="BtnAyarlar.Caption" xml:space="preserve">
     <value>AYARLAR</value>
   </data>
   <data name="barButtonItem12.ImageOptions.SvgImage" type="DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.2" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -945,10 +945,10 @@
   <data name="&gt;&gt;barButtonItem11.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;barButtonItem12.Name" xml:space="preserve">
-    <value>barButtonItem12</value>
+  <data name="&gt;&gt;BtnAyarlar.Name" xml:space="preserve">
+    <value>BtnAyarlar</value>
   </data>
-  <data name="&gt;&gt;barButtonItem12.Type" xml:space="preserve">
+  <data name="&gt;&gt;BtnAyarlar.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;barButtonItem7.Name" xml:space="preserve">
