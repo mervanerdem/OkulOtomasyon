@@ -202,7 +202,7 @@
             this.xtraTabControl2.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage3,
             this.xtraTabPage4});
-            this.xtraTabControl2.Click += new System.EventHandler(this.xtraTabControl2_Click);
+           
             // 
             // xtraTabPage3
             // 
@@ -650,6 +650,7 @@
             this.IsMdiContainer = true;
             this.Name = "FrmAyarlar";
             this.Text = "FrmAyarlar";
+            this.Load += new System.EventHandler(this.FrmAyarlar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.xtraTabControl1.ResumeLayout(false);
             this.xtraTabPage1.ResumeLayout(false);

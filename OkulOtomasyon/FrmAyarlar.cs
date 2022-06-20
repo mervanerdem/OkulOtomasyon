@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using System.IO;
 
 namespace OkulOtomasyon
 {
@@ -17,9 +19,25 @@ namespace OkulOtomasyon
             InitializeComponent();
         }
 
-        private void xtraTabControl2_Click(object sender, EventArgs e)
-        {
+        sqlbaglantisi bgl = new sqlbaglantisi();
 
+        void listele()
+        {
+            //Öğretmenler Ado.Net ile Bağlantı yapılacak.
+            DataTable dt1 = new DataTable();
+            SqlDataAdapter da1 = new SqlDataAdapter("Execute AyarlarOgret", bgl.baglanti());
+            da1.Fill(dt1);
+            gridControl1.DataSource = dt1;
+
+            //Ogrenciler Entity Framework ile yapılacak.
+
+
+        }
+
+
+        private void FrmAyarlar_Load(object sender, EventArgs e)
+        {
+            listele();
         }
     }
 }
