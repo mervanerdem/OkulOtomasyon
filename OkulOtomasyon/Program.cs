@@ -16,7 +16,7 @@ namespace OkulOtomasyon
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmMainModule());
+            Application.Run(new FrmAyarlar());
         }
     }
 }
