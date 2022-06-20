@@ -17,5 +17,9 @@ namespace OkulOtomasyon
             InitializeComponent();
         }
 
+        private void xtraTabControl2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
