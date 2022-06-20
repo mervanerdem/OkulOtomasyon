@@ -25,25 +25,25 @@ namespace OkulOtomasyon
         {
             //5.Sınıf
             DataTable dt1 = new DataTable();
-            SqlDataAdapter da1 = new SqlDataAdapter("Select * From Students Where OgrenciSınıf='5.Sınıf'",bgl.baglanti());
+            SqlDataAdapter da1 = new SqlDataAdapter("Execute OgrenciVeli5",bgl.baglanti());
             da1.Fill(dt1);
             GrdCtr5.DataSource = dt1;
 
             //6.Sınıf
             DataTable dt2 = new DataTable();
-            SqlDataAdapter da2 = new SqlDataAdapter("Select * From Students Where OgrenciSınıf='6.Sınıf'", bgl.baglanti());
+            SqlDataAdapter da2 = new SqlDataAdapter("Execute OgrenciVeli6", bgl.baglanti());
             da2.Fill(dt2);
             GrdCtr6.DataSource = dt2;
 
             //7.Sınıf
             DataTable dt3 = new DataTable();
-            SqlDataAdapter da3 = new SqlDataAdapter("Select * From Students Where OgrenciSınıf='7.Sınıf'", bgl.baglanti());
+            SqlDataAdapter da3 = new SqlDataAdapter("Execute OgrenciVeli7", bgl.baglanti());
             da3.Fill(dt3);
             GrdCtr7.DataSource = dt3;
 
-            //5.Sınıf
+            //8.Sınıf
             DataTable dt4= new DataTable();
-            SqlDataAdapter da4 = new SqlDataAdapter("Select * From Students Where OgrenciSınıf='8.Sınıf'", bgl.baglanti());
+            SqlDataAdapter da4 = new SqlDataAdapter("Execute OgrenciVeli8", bgl.baglanti());
             da4.Fill(dt4);
             GrdCtr8.DataSource = dt4;
         }
@@ -92,7 +92,7 @@ namespace OkulOtomasyon
         private void BtnKaydet_Click(object sender, EventArgs e)
         {
             SqlCommand komut = new SqlCommand("Insert Into Students (OgrenciAdı,OgrenciSoyadı,OgrenciNo,OgrenciTC,OgrenciSınıf,OgrenciDogumT," +
-                "OgrenciCinsiyet,OgrenciAdres) Values (@p1,@p2,@p3,@p4,@p5,@p6,@p7,@p8,@p9)", bgl.baglanti());
+                "OgrenciCinsiyet,OgrenciAdres,OgrenciFoto,OgrenciVeliID) Values (@p1,@p2,@p3,@p4,@p5,@p6,@p7,@p8,@p9,@p10)", bgl.baglanti());
             komut.Parameters.AddWithValue("@p1", TxtAd.Text);
             komut.Parameters.AddWithValue("@p2", TxtSoyad.Text);
             komut.Parameters.AddWithValue("@p3", MskOgrenciNo.Text);
@@ -110,6 +110,7 @@ namespace OkulOtomasyon
 
             komut.Parameters.AddWithValue("@p8", RchAdres.Text);
             komut.Parameters.AddWithValue("@p9", Path.GetFileName(newPath));
+            komut.Parameters.AddWithValue("@p10",lookUpEdit1.EditValue);
 
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
@@ -141,6 +142,7 @@ namespace OkulOtomasyon
                 dateEdit1.Text = dr["OgrenciDogumT"].ToString();
                 newPath = "D:\\Mervan\\OkulOtomasyon" + "\\Resimler\\" + dr["OgrenciFoto"].ToString();
                 PctEditOgrenci.Image = Image.FromFile(newPath);
+                lookUpEdit1.Text = dr["VeliAnneBaba"].ToString();
             }
         }
 
@@ -167,6 +169,7 @@ namespace OkulOtomasyon
                 dateEdit1.Text = dr["OgrenciDogumT"].ToString();
                 newPath = "D:\\Mervan\\OkulOtomasyon" + "\\Resimler\\" + dr["OgrenciFoto"].ToString();
                 PctEditOgrenci.Image = Image.FromFile(newPath);
+                lookUpEdit1.Text = dr["VeliAnneBaba"].ToString();
             }
         }
 
@@ -193,6 +196,7 @@ namespace OkulOtomasyon
                 dateEdit1.Text = dr["OgrenciDogumT"].ToString();
                 newPath = "D:\\Mervan\\OkulOtomasyon" + "\\Resimler\\" + dr["OgrenciFoto"].ToString();
                 PctEditOgrenci.Image = Image.FromFile(newPath);
+                lookUpEdit1.Text = dr["VeliAnneBaba"].ToString();
             }
         }
 
@@ -219,6 +223,7 @@ namespace OkulOtomasyon
                 dateEdit1.Text = dr["OgrenciDogumT"].ToString();
                 newPath = "D:\\Mervan\\OkulOtomasyon" + "\\Resimler\\" + dr["OgrenciFoto"].ToString();
                 PctEditOgrenci.Image = Image.FromFile(newPath);
+                lookUpEdit1.Text = dr["VeliAnneBaba"].ToString();
             }
         }
 
@@ -240,7 +245,7 @@ namespace OkulOtomasyon
             SqlCommand komut = new SqlCommand("Update Students set " +
                 "OgrenciAdı = @p1,OgrenciSoyadı = @p2 ,OgrenciNo = @p3, OgrenciTC = @p4," +
                 "OgrenciSınıf = @p5, OgrenciDogumT = @p6, OgrenciCinsiyet = @p7, OgrenciAdres = @p8," +
-                "OgrenciFoto = @p9 Where OgrenciID = @p10", bgl.baglanti());
+                "OgrenciFoto = @p9 Where OgrenciID = @p10,OgrenciVeliID = @p11", bgl.baglanti());
 
             komut.Parameters.AddWithValue("@p1", TxtAd.Text);
             komut.Parameters.AddWithValue("@p2", TxtSoyad.Text);
@@ -260,6 +265,7 @@ namespace OkulOtomasyon
             komut.Parameters.AddWithValue("@p8", RchAdres.Text);
             komut.Parameters.AddWithValue("@p9", Path.GetFileName(newPath));
             komut.Parameters.AddWithValue("@p10", TxtID.Text);
+            komut.Parameters.AddWithValue("@p11", lookUpEdit1.EditValue);
 
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();

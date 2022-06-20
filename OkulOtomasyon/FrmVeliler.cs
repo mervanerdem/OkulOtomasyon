@@ -25,10 +25,19 @@ namespace OkulOtomasyon
             //gridControl1.DataSource = db.Veliler.ToList();  //entity framework listeleme
             //gridView1.Columns[6].Visible = false; 
 
-            //ikinci yöntem (Query yazarak)
-            var query = from item in db.Veliler
-                        select new { item.VeliID, item.VeliAnne, item.VeliBaba, item.VeliTel1, item.VeliTel2, item.VeliMail };
-            gridControl1.DataSource = query.ToList();
+            ////ikinci yöntem (Query yazarak)
+            //var query = from item in db.Veliler
+            //            select new { item.VeliID, item.VeliAnne, item.VeliBaba, item.VeliTel1, item.VeliTel2, item.VeliMail };
+            //gridControl1.DataSource = query.ToList();
+
+            //üçüncü linq yöntemi
+            using(var db = new OkulEntities())
+            {
+                var liste = from item in db.Veliler
+                            select new { item.VeliID, item.VeliAnne, item.VeliBaba, item.VeliTel1, item.VeliTel2, item.VeliMail };
+                
+                gridControl1.DataSource = liste.ToList();
+            }
         }
 
         private void FrmVeliler_Load(object sender, EventArgs e)
@@ -52,6 +61,23 @@ namespace OkulOtomasyon
             db.SaveChanges();
             listele();
             temizle();
+
+            ////linq ile kaydetme
+            //using(var db = new OkulEntities())
+            //{
+            //    Veliler veli = new Veliler();
+            //    veli.VeliAnne = TxtAnne.Text;
+            //    veli.VeliBaba = TxtBaba.Text;
+            //    veli.VeliTel1 = MskTel1.Text;
+            //    veli.VeliTel2 = MskTel2.Text;
+            //    veli.VeliMail = TxtMail.Text;
+
+            //    db.Veliler.Add(veli);
+            //    db.SaveChanges();
+
+            //}
+            //listele();
+            //temizle();
         }
 
         private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
@@ -68,29 +94,55 @@ namespace OkulOtomasyon
         private void BtnGuncelle_Click(object sender, EventArgs e)
         {
             int id = Convert.ToInt16(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "VeliID").ToString());
-            var item = db.Veliler.Find(id);
-            item.VeliAnne = TxtAnne.Text;
-            item.VeliBaba = TxtBaba.Text;
-            item.VeliTel1 = MskTel1.Text;
-            item.VeliTel2 = MskTel2.Text;
-            item.VeliMail = TxtMail.Text;
+            //var item = db.Veliler.Find(id);
+            //item.VeliAnne = TxtAnne.Text;
+            //item.VeliBaba = TxtBaba.Text;
+            //item.VeliTel1 = MskTel1.Text;
+            //item.VeliTel2 = MskTel2.Text;
+            //item.VeliMail = TxtMail.Text;
 
-            db.SaveChanges();
-            MessageBox.Show("Veli Güncellendi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            listele();
-            temizle();
+            //db.SaveChanges();
+            //MessageBox.Show("Veli Güncellendi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //listele();
+            //temizle();
+            using (OkulEntities db = new OkulEntities())
+            {
+                var item = db.Veliler.FirstOrDefault(x => x.VeliID == id);
+                item.VeliAnne = TxtAnne.Text;
+                item.VeliBaba = TxtBaba.Text;
+                item.VeliTel1 = MskTel1.Text;
+                item.VeliTel2 = MskTel2.Text;
+                item.VeliMail = TxtMail.Text;
+
+                db.SaveChanges();
+                MessageBox.Show("Veli Güncellendi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                listele();
+                temizle();
+            }
         }
 
         private void BtnSil_Click(object sender, EventArgs e)
         {
             int id = Convert.ToInt16(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "VeliID").ToString());
-            var item = db.Veliler.Find(id);
-            db.Veliler.Remove(item);
+            //var item = db.Veliler.Find(id);
+            //db.Veliler.Remove(item);
 
-            db.SaveChanges();
-            MessageBox.Show("Veli Silindi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            listele();
-            temizle();
+            //db.SaveChanges();
+            //MessageBox.Show("Veli Silindi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //listele();
+            //temizle();
+
+            using(OkulEntities db = new OkulEntities())
+            {
+                var item = db.Veliler.First(x => x.VeliID == id);
+                db.Veliler.Remove(item);
+
+                db.SaveChanges();
+                MessageBox.Show("Veli Silindi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                listele();
+                temizle();
+
+            }
         }
 
         void temizle()
