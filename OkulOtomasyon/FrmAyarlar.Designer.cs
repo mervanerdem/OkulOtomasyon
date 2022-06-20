@@ -50,7 +50,6 @@
             this.TxtOgretAd = new DevExpress.XtraEditors.LookUpEdit();
             this.TxtOgretID = new DevExpress.XtraEditors.TextEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -59,9 +58,11 @@
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem19 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.xtraTabPage4 = new DevExpress.XtraTab.XtraTabPage();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
+            this.TxtOgrenID = new DevExpress.XtraEditors.TextEdit();
             this.BtnTemizleOgren = new DevExpress.XtraEditors.SimpleButton();
             this.BtnGuncelleOgrenci = new DevExpress.XtraEditors.SimpleButton();
             this.MskOgrenTc = new System.Windows.Forms.MaskedTextBox();
@@ -79,7 +80,6 @@
             this.layoutControlItem16 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem17 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem18 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.TxtOgrenID = new DevExpress.XtraEditors.TextEdit();
             this.ID = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
@@ -102,7 +102,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.TxtOgretAd.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtOgretID.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
@@ -111,11 +110,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             this.xtraTabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
             this.layoutControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TxtOgrenID.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtOgrenSınıf.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtOgrenSifre.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtOgrenAdı.Properties)).BeginInit();
@@ -129,7 +130,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TxtOgrenID.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ID)).BeginInit();
             this.SuspendLayout();
             // 
@@ -167,6 +167,7 @@
             // 
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
+            this.gridView1.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView1_FocusedRowChanged);
             // 
             // xtraTabPage2
             // 
@@ -246,6 +247,7 @@
             this.pictureEdit1.Location = new System.Drawing.Point(138, 12);
             this.pictureEdit1.Name = "pictureEdit1";
             this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze;
             this.pictureEdit1.Size = new System.Drawing.Size(144, 131);
             this.pictureEdit1.StyleController = this.layoutControl1;
             this.pictureEdit1.TabIndex = 15;
@@ -310,6 +312,7 @@
             this.TxtOgretAd.Name = "TxtOgretAd";
             this.TxtOgretAd.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.TxtOgretAd.Properties.EditValueChanged += new System.EventHandler(this.TxtOgretAd_Properties_EditValueChanged);
             this.TxtOgretAd.Size = new System.Drawing.Size(144, 20);
             this.TxtOgretAd.StyleController = this.layoutControl1;
             this.TxtOgretAd.TabIndex = 5;
@@ -339,15 +342,6 @@
             this.Root.Name = "Root";
             this.Root.Size = new System.Drawing.Size(294, 407);
             this.Root.TextVisible = false;
-            // 
-            // layoutControlItem2
-            // 
-            this.layoutControlItem2.Control = this.TxtOgretID;
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 135);
-            this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(274, 24);
-            this.layoutControlItem2.Text = "Öğretmen ID";
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(114, 13);
             // 
             // layoutControlItem3
             // 
@@ -421,6 +415,15 @@
             this.layoutControlItem19.Text = "                                      ";
             this.layoutControlItem19.TextSize = new System.Drawing.Size(114, 13);
             // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.TxtOgretID;
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 135);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(274, 24);
+            this.layoutControlItem2.Text = "Öğretmen ID";
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(114, 13);
+            // 
             // xtraTabPage4
             // 
             this.xtraTabPage4.Controls.Add(this.groupControl2);
@@ -458,6 +461,14 @@
             this.layoutControl2.Size = new System.Drawing.Size(303, 390);
             this.layoutControl2.TabIndex = 1;
             this.layoutControl2.Text = "layoutControl2";
+            // 
+            // TxtOgrenID
+            // 
+            this.TxtOgrenID.Location = new System.Drawing.Point(156, 142);
+            this.TxtOgrenID.Name = "TxtOgrenID";
+            this.TxtOgrenID.Size = new System.Drawing.Size(135, 20);
+            this.TxtOgrenID.StyleController = this.layoutControl2;
+            this.TxtOgrenID.TabIndex = 15;
             // 
             // BtnTemizleOgren
             // 
@@ -519,6 +530,7 @@
             this.TxtOgrenAdı.Name = "TxtOgrenAdı";
             this.TxtOgrenAdı.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.TxtOgrenAdı.Properties.EditValueChanged += new System.EventHandler(this.TxtOgrenAdı_Properties_EditValueChanged);
             this.TxtOgrenAdı.Size = new System.Drawing.Size(135, 20);
             this.TxtOgrenAdı.StyleController = this.layoutControl2;
             this.TxtOgrenAdı.TabIndex = 5;
@@ -622,14 +634,6 @@
             this.layoutControlItem18.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem18.TextVisible = false;
             // 
-            // TxtOgrenID
-            // 
-            this.TxtOgrenID.Location = new System.Drawing.Point(156, 142);
-            this.TxtOgrenID.Name = "TxtOgrenID";
-            this.TxtOgrenID.Size = new System.Drawing.Size(135, 20);
-            this.TxtOgrenID.StyleController = this.layoutControl2;
-            this.TxtOgrenID.TabIndex = 15;
-            // 
             // ID
             // 
             this.ID.Control = this.TxtOgrenID;
@@ -669,7 +673,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.TxtOgretAd.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtOgretID.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
@@ -678,11 +681,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             this.xtraTabPage4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).EndInit();
             this.layoutControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.TxtOgrenID.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtOgrenSınıf.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtOgrenSifre.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtOgrenAdı.Properties)).EndInit();
@@ -696,7 +701,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TxtOgrenID.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ID)).EndInit();
             this.ResumeLayout(false);
 
