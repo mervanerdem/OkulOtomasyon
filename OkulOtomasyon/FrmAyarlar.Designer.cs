@@ -261,6 +261,7 @@
             this.BtnTemizleOgret.StyleController = this.layoutControl1;
             this.BtnTemizleOgret.TabIndex = 12;
             this.BtnTemizleOgret.Text = "Temizle";
+            this.BtnTemizleOgret.Click += new System.EventHandler(this.BtnTemizleOgret_Click);
             // 
             // BtnGuncelleOgret
             // 
@@ -271,6 +272,7 @@
             this.BtnGuncelleOgret.StyleController = this.layoutControl1;
             this.BtnGuncelleOgret.TabIndex = 11;
             this.BtnGuncelleOgret.Text = "Güncelle";
+            this.BtnGuncelleOgret.Click += new System.EventHandler(this.BtnGuncelleOgret_Click);
             // 
             // MskOgretTC
             // 

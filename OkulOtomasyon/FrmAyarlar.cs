@@ -49,6 +49,7 @@ namespace OkulOtomasyon
         {
             listele();
             ogretmenListesi();
+            temizle();
         }
 
         private void TxtOgrenAdı_Properties_EditValueChanged(object sender, EventArgs e)
@@ -101,6 +102,40 @@ namespace OkulOtomasyon
             bgl.baglanti();
             MessageBox.Show("Şifre oluşturuldu.","Bilgi",MessageBoxButtons.OK,MessageBoxIcon.Information);
             listele();
+            temizle();
+        }
+
+
+        //Öğretmen Şifre Güncelleme
+        private void BtnGuncelleOgret_Click(object sender, EventArgs e)
+        {
+            SqlCommand komut = new SqlCommand("Update Ayarlar Set OgretSifre = @p1 Where AyarlarID = @p2", bgl.baglanti());
+            komut.Parameters.AddWithValue("@p1", TxtOgretSifre.Text);
+            komut.Parameters.AddWithValue("@p2", TxtOgretID.Text);
+            komut.ExecuteNonQuery();
+            bgl.baglanti().Close();
+            MessageBox.Show("Şifre Güncellendi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            listele();
+            temizle();
+
+        }
+
+        //Temizle
+
+        void temizle()
+        {
+            TxtOgretAd.Properties.NullText = "Öğretmen Seçiniz..";
+            TxtOgretID.Text = "";
+            TxtOgretSifre.Text = "";
+            MskOgretTC.Text = "";
+            pictureEdit1.Text = "";
+            TxtBrans.Text = "";
+            
+        }
+
+        private void BtnTemizleOgret_Click(object sender, EventArgs e)
+        {
+            temizle();
         }
     }
 }
