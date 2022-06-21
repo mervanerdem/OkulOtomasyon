@@ -19,7 +19,24 @@ namespace OkulOtomasyon
             InitializeComponent();
         }
 
-        sqlbaglantisi bgl = new sqlbaglantisi();
+        private void FrmAyarlar_Load(object sender, EventArgs e)
+        {
+            listele();
+            ogretmenListesi();
+            temizle();
+            stuListele();
+        }
+
+
+
+
+        sqlbaglantisi bgl = new sqlbaglantisi(); //Ado.Net
+        OkulEntities db = new OkulEntities();//Entityframework
+
+        void stuListele()
+        {
+            gridControl2.DataSource = db.AyarlarOgren();
+        }
 
         void listele()
         {
@@ -45,12 +62,7 @@ namespace OkulOtomasyon
             TxtOgretAd.Properties.DataSource = dt;
         }
 
-        private void FrmAyarlar_Load(object sender, EventArgs e)
-        {
-            listele();
-            ogretmenListesi();
-            temizle();
-        }
+
 
         private void TxtOgrenAdı_Properties_EditValueChanged(object sender, EventArgs e)
         {

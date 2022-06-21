@@ -12,6 +12,8 @@ namespace OkulOtomasyon
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class OkulEntities : DbContext
     {
@@ -32,5 +34,17 @@ namespace OkulOtomasyon
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Teachers> Teachers { get; set; }
         public virtual DbSet<Veliler> Veliler { get; set; }
+        public virtual DbSet<Ayarlar> Ayarlar { get; set; }
+        public virtual DbSet<StudentSet> StudentSet { get; set; }
+    
+        public virtual ObjectResult<AyarlarOgren_Result> AyarlarOgren()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<AyarlarOgren_Result>("AyarlarOgren");
+        }
+    
+        public virtual ObjectResult<AyarlarOgret_Result> AyarlarOgret()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<AyarlarOgret_Result>("AyarlarOgret");
+        }
     }
 }

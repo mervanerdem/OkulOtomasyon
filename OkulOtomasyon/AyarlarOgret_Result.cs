@@ -10,22 +10,15 @@
 namespace OkulOtomasyon
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Teachers
+    public partial class AyarlarOgret_Result
     {
+        public int AyarlarID { get; set; }
+        public string OgretSifre { get; set; }
         public int OgretmenID { get; set; }
-        public string OgretmenAdı { get; set; }
-        public string OgretmenSoyadı { get; set; }
-        public string OgretmenTC { get; set; }
-        public string OgretmenTelNo { get; set; }
-        public string OgretmenMail { get; set; }
-        public string OgretmenIL { get; set; }
-        public string OgretmenIlce { get; set; }
-        public string OgretmenAdres { get; set; }
+        public string OgretAdSoyad { get; set; }
         public string OgretmenBrans { get; set; }
+        public string OgretmenTC { get; set; }
         public string OgretmenFoto { get; set; }
-    
-        public virtual Ayarlar Ayarlar { get; set; }
     }
 }

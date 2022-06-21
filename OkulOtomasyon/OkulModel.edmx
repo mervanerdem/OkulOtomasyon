@@ -4,7 +4,14 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="OkulModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="OkulModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Ayarlar">
+          <Key>
+            <PropertyRef Name="AyarlarID" />
+          </Key>
+          <Property Name="AyarlarID" Type="int" Nullable="false" />
+          <Property Name="OgretSifre" Type="varchar" MaxLength="30" />
+        </EntityType>
         <EntityType Name="Brans">
           <Key>
             <PropertyRef Name="BransID" />
@@ -32,16 +39,23 @@
             <PropertyRef Name="OgrenciID" />
           </Key>
           <Property Name="OgrenciID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="OgrenciAdı" Type="varchar" MaxLength="30" Nullable="false" />
-          <Property Name="OgrenciSoyadı" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="OgrenciAdı" Type="varchar" MaxLength="30" />
+          <Property Name="OgrenciSoyadı" Type="varchar" MaxLength="30" />
           <Property Name="OgrenciNo" Type="varchar" MaxLength="4" />
-          <Property Name="OgrenciTC" Type="char" MaxLength="11" Nullable="false" />
+          <Property Name="OgrenciTC" Type="char" MaxLength="11" />
           <Property Name="OgrenciSınıf" Type="char" MaxLength="7" />
           <Property Name="OgrenciDogumT" Type="char" MaxLength="10" />
           <Property Name="OgrenciCinsiyet" Type="char" MaxLength="1" />
           <Property Name="OgrenciAdres" Type="varchar" MaxLength="100" />
           <Property Name="OgrenciFoto" Type="varchar" MaxLength="500" />
           <Property Name="OgrenciVeliID" Type="int" />
+        </EntityType>
+        <EntityType Name="StudentSet">
+          <Key>
+            <PropertyRef Name="AyarOgrenID" />
+          </Key>
+          <Property Name="AyarOgrenID" Type="int" Nullable="false" />
+          <Property Name="OgrenSifre" Type="varchar" MaxLength="30" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -80,6 +94,18 @@
           <Property Name="VeliTel2" Type="char" MaxLength="15" />
           <Property Name="VeliMail" Type="varchar" MaxLength="50" />
         </EntityType>
+        <Association Name="FK_Ayarlar_Teachers">
+          <End Role="Teachers" Type="Self.Teachers" Multiplicity="1" />
+          <End Role="Ayarlar" Type="Self.Ayarlar" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Teachers">
+              <PropertyRef Name="OgretmenID" />
+            </Principal>
+            <Dependent Role="Ayarlar">
+              <PropertyRef Name="AyarlarID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Students_Veliler">
           <End Role="Veliler" Type="Self.Veliler" Multiplicity="0..1" />
           <End Role="Students" Type="Self.Students" Multiplicity="*" />
@@ -92,21 +118,44 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_StudentSet_Students">
+          <End Role="Students" Type="Self.Students" Multiplicity="1" />
+          <End Role="StudentSet" Type="Self.StudentSet" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Students">
+              <PropertyRef Name="OgrenciID" />
+            </Principal>
+            <Dependent Role="StudentSet">
+              <PropertyRef Name="AyarOgrenID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="AyarlarOgren" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="AyarlarOgret" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="OkulModelStoreContainer">
+          <EntitySet Name="Ayarlar" EntityType="Self.Ayarlar" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Brans" EntityType="Self.Brans" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ilceler" EntityType="Self.ilceler" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="iller" EntityType="Self.iller" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentSet" EntityType="Self.StudentSet" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Teachers" EntityType="Self.Teachers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Veliler" EntityType="Self.Veliler" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Ayarlar_Teachers" Association="Self.FK_Ayarlar_Teachers">
+            <End Role="Teachers" EntitySet="Teachers" />
+            <End Role="Ayarlar" EntitySet="Ayarlar" />
+          </AssociationSet>
           <AssociationSet Name="FK_Students_Veliler" Association="Self.FK_Students_Veliler">
             <End Role="Veliler" EntitySet="Veliler" />
             <End Role="Students" EntitySet="Students" />
           </AssociationSet>
+          <AssociationSet Name="FK_StudentSet_Students" Association="Self.FK_StudentSet_Students">
+            <End Role="Students" EntitySet="Students" />
+            <End Role="StudentSet" EntitySet="StudentSet" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="OkulModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -137,10 +186,10 @@
             <PropertyRef Name="OgrenciID" />
           </Key>
           <Property Name="OgrenciID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="OgrenciAdı" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="OgrenciSoyadı" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OgrenciAdı" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="OgrenciSoyadı" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="OgrenciNo" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
-          <Property Name="OgrenciTC" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="OgrenciTC" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
           <Property Name="OgrenciSınıf" Type="String" MaxLength="7" FixedLength="true" Unicode="false" />
           <Property Name="OgrenciDogumT" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
           <Property Name="OgrenciCinsiyet" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
@@ -148,6 +197,7 @@
           <Property Name="OgrenciFoto" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="OgrenciVeliID" Type="Int32" />
           <NavigationProperty Name="Veliler" Relationship="Self.FK_Students_Veliler" FromRole="Students" ToRole="Veliler" />
+          <NavigationProperty Name="StudentSet" Relationship="OkulModel.FK_StudentSet_Students" FromRole="Students" ToRole="StudentSet" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -174,6 +224,7 @@
           <Property Name="OgretmenAdres" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="OgretmenBrans" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="OgretmenFoto" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Ayarlar" Relationship="OkulModel.FK_Ayarlar_Teachers" FromRole="Teachers" ToRole="Ayarlar" />
         </EntityType>
         <EntityType Name="Veliler">
           <Key>
@@ -211,7 +262,76 @@
             <End Role="Veliler" EntitySet="Veliler" />
             <End Role="Students" EntitySet="Students" />
           </AssociationSet>
+          <EntitySet Name="Ayarlar" EntityType="OkulModel.Ayarlar" />
+          <EntitySet Name="StudentSet" EntityType="OkulModel.StudentSet" />
+          <AssociationSet Name="FK_Ayarlar_Teachers" Association="OkulModel.FK_Ayarlar_Teachers">
+            <End Role="Teachers" EntitySet="Teachers" />
+            <End Role="Ayarlar" EntitySet="Ayarlar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentSet_Students" Association="OkulModel.FK_StudentSet_Students">
+            <End Role="Students" EntitySet="Students" />
+            <End Role="StudentSet" EntitySet="StudentSet" />
+          </AssociationSet>
+          <FunctionImport Name="AyarlarOgren" ReturnType="Collection(OkulModel.AyarlarOgren_Result)" />
+          <FunctionImport Name="AyarlarOgret" ReturnType="Collection(OkulModel.AyarlarOgret_Result)" />
         </EntityContainer>
+        <EntityType Name="Ayarlar">
+          <Key>
+            <PropertyRef Name="AyarlarID" />
+          </Key>
+          <Property Name="AyarlarID" Type="Int32" Nullable="false" />
+          <Property Name="OgretSifre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Teachers" Relationship="OkulModel.FK_Ayarlar_Teachers" FromRole="Ayarlar" ToRole="Teachers" />
+        </EntityType>
+        <EntityType Name="StudentSet">
+          <Key>
+            <PropertyRef Name="AyarOgrenID" />
+          </Key>
+          <Property Name="AyarOgrenID" Type="Int32" Nullable="false" />
+          <Property Name="OgrenSifre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Students" Relationship="OkulModel.FK_StudentSet_Students" FromRole="StudentSet" ToRole="Students" />
+        </EntityType>
+        <Association Name="FK_Ayarlar_Teachers">
+          <End Type="OkulModel.Teachers" Role="Teachers" Multiplicity="1" />
+          <End Type="OkulModel.Ayarlar" Role="Ayarlar" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Teachers">
+              <PropertyRef Name="OgretmenID" />
+            </Principal>
+            <Dependent Role="Ayarlar">
+              <PropertyRef Name="AyarlarID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentSet_Students">
+          <End Type="OkulModel.Students" Role="Students" Multiplicity="1" />
+          <End Type="OkulModel.StudentSet" Role="StudentSet" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Students">
+              <PropertyRef Name="OgrenciID" />
+            </Principal>
+            <Dependent Role="StudentSet">
+              <PropertyRef Name="AyarOgrenID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="AyarlarOgren_Result">
+          <Property Type="Int32" Name="AyarOgrenID" Nullable="false" />
+          <Property Type="String" Name="OgrenSifre" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="OgrenciAdSoyad" Nullable="true" MaxLength="63" />
+          <Property Type="String" Name="OgrenciSınıf" Nullable="true" MaxLength="7" />
+          <Property Type="String" Name="OgrenciFoto" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="OgrenciTC" Nullable="true" MaxLength="11" />
+        </ComplexType>
+        <ComplexType Name="AyarlarOgret_Result">
+          <Property Type="Int32" Name="AyarlarID" Nullable="false" />
+          <Property Type="String" Name="OgretSifre" Nullable="true" MaxLength="30" />
+          <Property Type="Int32" Name="OgretmenID" Nullable="false" />
+          <Property Type="String" Name="OgretAdSoyad" Nullable="false" MaxLength="63" />
+          <Property Type="String" Name="OgretmenBrans" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="OgretmenTC" Nullable="true" MaxLength="11" />
+          <Property Type="String" Name="OgretmenFoto" Nullable="true" MaxLength="500" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -300,6 +420,47 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Ayarlar">
+            <EntityTypeMapping TypeName="OkulModel.Ayarlar">
+              <MappingFragment StoreEntitySet="Ayarlar">
+                <ScalarProperty Name="OgretSifre" ColumnName="OgretSifre" />
+                <ScalarProperty Name="AyarlarID" ColumnName="AyarlarID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentSet">
+            <EntityTypeMapping TypeName="OkulModel.StudentSet">
+              <MappingFragment StoreEntitySet="StudentSet">
+                <ScalarProperty Name="OgrenSifre" ColumnName="OgrenSifre" />
+                <ScalarProperty Name="AyarOgrenID" ColumnName="AyarOgrenID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="AyarlarOgren" FunctionName="OkulModel.Store.AyarlarOgren">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="OkulModel.AyarlarOgren_Result">
+                <ScalarProperty Name="AyarOgrenID" ColumnName="AyarOgrenID" />
+                <ScalarProperty Name="OgrenSifre" ColumnName="OgrenSifre" />
+                <ScalarProperty Name="OgrenciAdSoyad" ColumnName="OgrenciAdSoyad" />
+                <ScalarProperty Name="OgrenciSınıf" ColumnName="OgrenciSınıf" />
+                <ScalarProperty Name="OgrenciFoto" ColumnName="OgrenciFoto" />
+                <ScalarProperty Name="OgrenciTC" ColumnName="OgrenciTC" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="AyarlarOgret" FunctionName="OkulModel.Store.AyarlarOgret">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="OkulModel.AyarlarOgret_Result">
+                <ScalarProperty Name="AyarlarID" ColumnName="AyarlarID" />
+                <ScalarProperty Name="OgretSifre" ColumnName="OgretSifre" />
+                <ScalarProperty Name="OgretmenID" ColumnName="OgretmenID" />
+                <ScalarProperty Name="OgretAdSoyad" ColumnName="OgretAdSoyad" />
+                <ScalarProperty Name="OgretmenBrans" ColumnName="OgretmenBrans" />
+                <ScalarProperty Name="OgretmenTC" ColumnName="OgretmenTC" />
+                <ScalarProperty Name="OgretmenFoto" ColumnName="OgretmenFoto" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

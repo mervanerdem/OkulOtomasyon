@@ -27,5 +27,6 @@ namespace OkulOtomasyon
         public Nullable<int> OgrenciVeliID { get; set; }
     
         public virtual Veliler Veliler { get; set; }
+        public virtual StudentSet StudentSet { get; set; }
     }
 }
