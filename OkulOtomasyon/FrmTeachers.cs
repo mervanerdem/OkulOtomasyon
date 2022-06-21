@@ -230,7 +230,7 @@ namespace OkulOtomasyon
         private void BtnSil_Click(object sender, EventArgs e)
         {
             SqlCommand komut = new SqlCommand("Delete From Teachers Where OgretmenID = @p1",bgl.baglanti());
-            komut.Parameters.AddWithValue("@p1", TxtID.Text);
+            komut.Parameters.AddWithValue("@p1", TxtID.Text );
             komut.ExecuteNonQuery();
             bgl.baglanti();
             MessageBox.Show("Personel Silindi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Warning);

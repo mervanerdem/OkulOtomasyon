@@ -274,6 +274,7 @@
             // 
             // MskOgretTC
             // 
+            this.MskOgretTC.Enabled = false;
             this.MskOgretTC.Location = new System.Drawing.Point(138, 219);
             this.MskOgretTC.Mask = "00000000000";
             this.MskOgretTC.Name = "MskOgretTC";
@@ -289,9 +290,11 @@
             this.BtnKaydetOgret.StyleController = this.layoutControl1;
             this.BtnKaydetOgret.TabIndex = 9;
             this.BtnKaydetOgret.Text = "Kaydet";
+            this.BtnKaydetOgret.Click += new System.EventHandler(this.BtnKaydetOgret_Click);
             // 
             // TxtBrans
             // 
+            this.TxtBrans.Enabled = false;
             this.TxtBrans.Location = new System.Drawing.Point(138, 195);
             this.TxtBrans.Name = "TxtBrans";
             this.TxtBrans.Size = new System.Drawing.Size(144, 20);
@@ -319,6 +322,7 @@
             // 
             // TxtOgretID
             // 
+            this.TxtOgretID.Enabled = false;
             this.TxtOgretID.Location = new System.Drawing.Point(138, 147);
             this.TxtOgretID.Name = "TxtOgretID";
             this.TxtOgretID.Size = new System.Drawing.Size(144, 20);

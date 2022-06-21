@@ -56,11 +56,6 @@ namespace OkulOtomasyon
 
         }
 
-        private void TxtOgretAd_Properties_EditValueChanged(object sender, EventArgs e)
-        {
-            
-        }
-
         public string newPath;
         private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
@@ -76,6 +71,36 @@ namespace OkulOtomasyon
                 pictureEdit1.Image = Image.FromFile(newPath);
 
             }
+        }
+
+        private void TxtOgretAd_Properties_EditValueChanged(object sender, EventArgs e)
+        {
+            SqlCommand komut = new SqlCommand("Select * From Teachers Where OgretmenID = @p1", bgl.baglanti());
+            komut.Parameters.AddWithValue("@p1", TxtOgretAd.ItemIndex +8); //Database ID 8 den başladığından dolayı
+            SqlDataReader dr = komut.ExecuteReader();
+            while (dr.Read())
+            {
+                //kontrol edilecek..
+                TxtOgretID.Text = dr["OgretmenID"].ToString();
+                TxtBrans.Text = dr["OgretmenBrans"].ToString();
+                MskOgretTC.Text = dr["OgretmenTC"].ToString();
+                newPath = "D:\\Mervan\\OkulOtomasyon" + "\\Resimler\\" + dr["OgretmenFoto"].ToString();
+                pictureEdit1.Image = Image.FromFile(newPath);
+            }
+            bgl.baglanti().Close();
+
+        }
+
+        //Öğretmen kaydet tuşu
+        private void BtnKaydetOgret_Click(object sender, EventArgs e)
+        {
+            SqlCommand komut = new SqlCommand("Insert Into Ayarlar(AyarlarID,OgretSifre) Values (@p1,@p2)", bgl.baglanti());
+            komut.Parameters.AddWithValue("@p1", TxtOgretID.Text);
+            komut.Parameters.AddWithValue("@p2", TxtOgretSifre.Text);
+            komut.ExecuteNonQuery();
+            bgl.baglanti();
+            MessageBox.Show("Şifre oluşturuldu.","Bilgi",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            listele();
         }
     }
 }
