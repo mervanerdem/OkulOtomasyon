@@ -487,6 +487,7 @@
             this.BtnTemizleOgren.StyleController = this.layoutControl2;
             this.BtnTemizleOgren.TabIndex = 12;
             this.BtnTemizleOgren.Text = "Temizle";
+            this.BtnTemizleOgren.Click += new System.EventHandler(this.BtnTemizleOgren_Click);
             // 
             // BtnGuncelleOgrenci
             // 
@@ -497,6 +498,7 @@
             this.BtnGuncelleOgrenci.StyleController = this.layoutControl2;
             this.BtnGuncelleOgrenci.TabIndex = 11;
             this.BtnGuncelleOgrenci.Text = "Güncelle";
+            this.BtnGuncelleOgrenci.Click += new System.EventHandler(this.BtnGuncelleOgrenci_Click);
             // 
             // MskOgrenTc
             // 
@@ -516,6 +518,7 @@
             this.BtnOgrenKaydet.StyleController = this.layoutControl2;
             this.BtnOgrenKaydet.TabIndex = 9;
             this.BtnOgrenKaydet.Text = "Kaydet";
+            this.BtnOgrenKaydet.Click += new System.EventHandler(this.BtnOgrenKaydet_Click);
             // 
             // TxtOgrenSınıf
             // 

@@ -82,10 +82,20 @@ namespace OkulOtomasyon
         }
 
 
-
+        //Entityframework ile isim seçildikten sonra verilerin çekilmesi
         private void TxtOgrenAdı_Properties_EditValueChanged(object sender, EventArgs e)
         {
+            
+            using (OkulEntities db = new OkulEntities())
+            {
+                Students sorgu = db.Students.Find(TxtOgrenAdı.ItemIndex + 1);
+                TxtOgrenID.Text = sorgu.OgrenciID.ToString();
+                TxtOgrenSınıf.Text = sorgu.OgrenciSınıf;
+                MskOgrenTc.Text = sorgu.OgrenciTC.ToString();
+                newPath = "D:\\Mervan\\OkulOtomasyon" + "\\Resimler\\" + sorgu.OgrenciFoto.ToString();
+                PctOgrenci.Image = Image.FromFile(newPath);
 
+            }
         }
 
         public string newPath;
@@ -122,6 +132,8 @@ namespace OkulOtomasyon
             bgl.baglanti().Close();
 
         }
+
+        //Entityframework ile isim seçildikten sonra verilerin çekilmesi
 
         //Öğretmen kaydet tuşu
         private void BtnKaydetOgret_Click(object sender, EventArgs e)
@@ -161,13 +173,21 @@ namespace OkulOtomasyon
             MskOgretTC.Text = "";
             pictureEdit1.Text = "";
             TxtBrans.Text = "";
+            TxtOgrenAdı.Properties.NullText = "Öğrenci Seçiniz...";
+            TxtOgrenID.Text = "";
+            TxtOgrenSifre.Text = "";
+            TxtOgrenSınıf.Text = "";
+            MskOgrenTc.Text = "";
+            
             
         }
+        
 
         private void BtnTemizleOgret_Click(object sender, EventArgs e)
         {
             temizle();
         }
+
 
         private void gridView2_FocusedRowObjectChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowObjectChangedEventArgs e)
         {
@@ -179,6 +199,36 @@ namespace OkulOtomasyon
             string uzanti = gridView2.GetRowCellValue(gridView2.FocusedRowHandle, "OgrenciFoto").ToString();
             newPath = "D:\\Mervan\\OkulOtomasyon" + "\\Resimler\\" + uzanti;
             PctOgrenci.Image = Image.FromFile(newPath);
+        }
+
+        private void BtnOgrenKaydet_Click(object sender, EventArgs e)
+        {
+            StudentSet komut = new StudentSet();
+            komut.AyarOgrenID = Convert.ToInt32(TxtOgrenID.Text);
+            komut.OgrenSifre = TxtOgrenSifre.Text;
+            db.StudentSet.Add(komut);
+            db.SaveChanges();
+            MessageBox.Show("Şifre Kaydedildi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            stuListele();
+            temizle();
+
+        }
+
+        private void BtnGuncelleOgrenci_Click(object sender, EventArgs e)
+        {
+
+            int id = Convert.ToInt32(gridView2.GetRowCellValue(gridView2.FocusedRowHandle, "AyarOgrenID"));
+            var item = db.StudentSet.FirstOrDefault(x => x.AyarOgrenID == id);
+            item.OgrenSifre = TxtOgrenSifre.Text;
+            db.SaveChanges();
+            MessageBox.Show("Şifre Güncellendi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            stuListele();
+            temizle();
+        }
+
+        private void BtnTemizleOgren_Click(object sender, EventArgs e)
+        {
+            temizle();
         }
     }
 }
