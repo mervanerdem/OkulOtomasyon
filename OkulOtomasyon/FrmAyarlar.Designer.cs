@@ -192,6 +192,7 @@
             // 
             this.gridView2.GridControl = this.gridControl2;
             this.gridView2.Name = "gridView2";
+            this.gridView2.FocusedRowObjectChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowObjectChangedEventHandler(this.gridView2_FocusedRowObjectChanged);
             // 
             // xtraTabControl2
             // 
@@ -549,6 +550,7 @@
             this.PctOgrenci.Location = new System.Drawing.Point(156, 12);
             this.PctOgrenci.Name = "PctOgrenci";
             this.PctOgrenci.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.PctOgrenci.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze;
             this.PctOgrenci.Size = new System.Drawing.Size(135, 126);
             this.PctOgrenci.StyleController = this.layoutControl2;
             this.PctOgrenci.TabIndex = 1;

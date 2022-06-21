@@ -168,5 +168,17 @@ namespace OkulOtomasyon
         {
             temizle();
         }
+
+        private void gridView2_FocusedRowObjectChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowObjectChangedEventArgs e)
+        {
+            TxtOgrenID.Text = gridView2.GetRowCellValue(gridView2.FocusedRowHandle,"AyarOgrenID").ToString();
+            TxtOgrenAdı.Text = gridView2.GetRowCellValue(gridView2.FocusedRowHandle, "OgrenciAdSoyad").ToString();
+            TxtOgrenSınıf.Text = gridView2.GetRowCellValue(gridView2.FocusedRowHandle, "OgrenciSınıf").ToString();
+            MskOgrenTc.Text = gridView2.GetRowCellValue(gridView2.FocusedRowHandle, "OgrenciTC").ToString();
+            TxtOgrenSifre.Text = gridView2.GetRowCellValue(gridView2.FocusedRowHandle, "OgrenSifre").ToString();
+            string uzanti = gridView2.GetRowCellValue(gridView2.FocusedRowHandle, "OgrenciFoto").ToString();
+            newPath = "D:\\Mervan\\OkulOtomasyon" + "\\Resimler\\" + uzanti;
+            PctOgrenci.Image = Image.FromFile(newPath);
+        }
     }
 }
