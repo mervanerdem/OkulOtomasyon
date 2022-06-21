@@ -470,6 +470,7 @@
             // 
             // TxtOgrenID
             // 
+            this.TxtOgrenID.Enabled = false;
             this.TxtOgrenID.Location = new System.Drawing.Point(156, 142);
             this.TxtOgrenID.Name = "TxtOgrenID";
             this.TxtOgrenID.Size = new System.Drawing.Size(135, 20);
@@ -498,6 +499,7 @@
             // 
             // MskOgrenTc
             // 
+            this.MskOgrenTc.Enabled = false;
             this.MskOgrenTc.Location = new System.Drawing.Point(156, 214);
             this.MskOgrenTc.Mask = "00000000000";
             this.MskOgrenTc.Name = "MskOgrenTc";
@@ -516,6 +518,7 @@
             // 
             // TxtOgrenSınıf
             // 
+            this.TxtOgrenSınıf.Enabled = false;
             this.TxtOgrenSınıf.Location = new System.Drawing.Point(156, 190);
             this.TxtOgrenSınıf.Name = "TxtOgrenSınıf";
             this.TxtOgrenSınıf.Size = new System.Drawing.Size(135, 20);

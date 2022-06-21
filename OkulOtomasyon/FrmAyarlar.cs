@@ -25,6 +25,7 @@ namespace OkulOtomasyon
             ogretmenListesi();
             temizle();
             stuListele();
+            ogrencilistesi();
         }
 
 
@@ -33,9 +34,27 @@ namespace OkulOtomasyon
         sqlbaglantisi bgl = new sqlbaglantisi(); //Ado.Net
         OkulEntities db = new OkulEntities();//Entityframework
 
-        void stuListele()
+
+        void stuListele() //Öğrenci listele
         {
             gridControl2.DataSource = db.AyarlarOgren();
+        }
+
+        //Entity Framwork ile LookUpEdit Veri getirme
+        void ogrencilistesi()
+        {
+            var k = from data in db.Students
+                    select new
+                    {
+                        OgrID = data.OgrenciID,
+                        OgrAdSoyad = data.OgrenciAdı + " " + data.OgrenciSoyadı,
+                        OgrSinif = data.OgrenciSınıf,
+                        OgrTC = data.OgrenciTC,
+                    };
+            TxtOgrenAdı.Properties.ValueMember = "OgrID";
+            TxtOgrenAdı.Properties.DisplayMember = "OgrAdSoyad";
+            TxtOgrenAdı.Properties.NullText = "Öğrenci Seçiniz..";
+            TxtOgrenAdı.Properties.DataSource = k.ToList();
         }
 
         void listele()
